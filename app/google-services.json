@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "767149372894",
+    "project_id": "asra-mobile",
+    "storage_bucket": "asra-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767149372894:android:5b07dfdf496992bfc9994f",
+        "android_client_info": {
+          "package_name": "com.konden.freedom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767149372894-t6kjh6homsk8fif4pn35trhtok7l8ot6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo-jRJ8aQGL7meRK-_rrr_WZUI0hgI5mQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767149372894-t6kjh6homsk8fif4pn35trhtok7l8ot6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
