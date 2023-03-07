@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.android.datatransport.runtime.scheduling.jobscheduling.Uploader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -39,34 +40,6 @@ public class TestActivity extends AppCompatActivity {
         binding.rv.setLayoutManager(new GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false));
 
         lodeitem();
-
-
-//        db.collection("info freedom").get()
-//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                        if (!queryDocumentSnapshots.isEmpty()) {
-//                            binding.progressBar.setVisibility(View.GONE);
-//                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-//                            for (DocumentSnapshot d : list) {
-//                                Test c = d.toObject(Test.class);
-//                                c.setId(d.getId());
-//                                coursesArrayList.add(c);
-//                            }
-//                            TestRVAdapter.notifyDataSetChanged();
-//                        } else {
-//                            // if the snapshot is empty we are displaying a toast message.
-//                            Toast.makeText(TestActivity.this, "No data found in Database", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        // if we do not get any data or any error we are displaying
-//                        // a toast message that we do not get any data
-//                        Toast.makeText(TestActivity.this, "Fail to get the data.", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
     }
 
     private void lodeitem() {
@@ -90,55 +63,4 @@ public class TestActivity extends AppCompatActivity {
             }
         });
     }
-
-
-//    private void TestCode() {
-//
-//        //CODE TO GET CURRENT ID OR USER
-//
-//        //CODE TO GET THE DATA FROM FIREBASE
-//
-//        db.collection("info freedom").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                        if (document != null) {
-//                            Test obj = document.toObject(Test.class);
-//                            coursesArrayList.add(obj);
-//                        }
-//                    }
-//                    TestRVAdapter.notifyDataSetChanged();
-//                } else {
-//                    Log.d(TAG, task.getException().getMessage()); //Never ignore potential errors!
-//                }
-//            }
-//        });
-//    }
-
-
-//    private void getNotes() {
-//        FirebaseFireStoreController.getInstance().read(new ListCallback<Test>() {
-//            @Override
-//            public void onSuccess(ArrayList<Test> list) {
-//
-//                binding.progressBar.setVisibility(View.GONE);
-//                coursesArrayList.clear();
-//                coursesArrayList.addAll(list);
-//                Log.d("NOTEs", "onSuccess: " + coursesArrayList.size());
-////                adapter.notifyItemRangeChanged(0, notes.size());
-////                adapter.notifyItemRangeInserted(0,notes.size());
-////                adapter.notifyItemInserted(0);
-//                binding.rv.setAdapter(TestRVAdapter);
-//                TestRVAdapter.notifyDataSetChanged();
-//
-//            }
-//
-//            @Override
-//            public void onFailure() {
-//                Toast.makeText(TestActivity.this, "erroe", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-
 }
