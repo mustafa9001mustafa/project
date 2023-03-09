@@ -10,26 +10,57 @@
     <com.jawnnypoo.physicslayout.PhysicsLinearLayout
         android:id="@+id/physics_layout"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="300dp"
+        app:bounds="true"
+        app:boundsSize="50dp"
+        app:fling="true"
+        app:gravityX="0"
+        app:gravityY="9.8"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_height="200dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:physics="true">
+
+
 
         <ImageView
+            android:id="@+id/ima"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_foreground"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_launcher_foreground" />
 
         <ImageView
+            android:id="@+id/img"
+            android:layout_marginHorizontal="55dp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_100sdp"
-            android:src="@drawable/ic_launcher_background"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_launcher_background" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello world, I have physics!"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Hello world, I have physics!" />-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginVertical="@dimen/_35sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/purple_500"
+            />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.jawnnypoo.physicslayout.PhysicsLinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

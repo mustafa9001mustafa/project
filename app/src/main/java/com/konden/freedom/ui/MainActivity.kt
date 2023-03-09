@@ -4,13 +4,19 @@ import android.annotation.TargetApi
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.jawnnypoo.physicslayout.Physics
+import com.jawnnypoo.physicslayout.PhysicsConfig
+import com.jawnnypoo.physicslayout.Shape
+import com.konden.freedom.R
 import com.konden.freedom.databinding.ActivityMainBinding
 
 
@@ -21,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     var databaseReference: DatabaseReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         // Hide bar when you want. For example hide bar in landscape only
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             hideStatusBar_AllVersions();
@@ -30,6 +35,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.physicsLayout.physics.setOnCollisionListener(object : Physics.OnCollisionListener {
+            override fun onCollisionEntered(i: Int, i1: Int) {
+                if (i ==  R.id.ima && i1 ==  R.id.img)
+                    Toast.makeText(this@MainActivity, "test", Toast.LENGTH_SHORT).show()
+                Log.e("TAG", "onCollisionEntered: ", )
+            }
+            override fun onCollisionExited(i: Int, i1: Int) {
+
+
+            }
+        })
+//        binding.physicsLayout.physics.setOnCollisionListener(object =)
+        val config = PhysicsConfig(
+            shape = Shape.CIRCLE
+//            fixtureDef = fixtureDef,
+//            bodyDef = bodyDef
+        )
+        Physics.setPhysicsConfig(binding.physicsLayout, config)
 
 
     }

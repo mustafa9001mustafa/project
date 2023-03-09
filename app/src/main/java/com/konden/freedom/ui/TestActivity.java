@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.jawnnypoo.physicslayout.Physics;
 import com.konden.freedom.adapter.TestAdapter;
 import com.konden.freedom.databinding.ActivityTestBinding;
 import com.konden.freedom.model.Test;
@@ -32,6 +33,20 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityTestBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.physicsLayout.getPhysics().isFlingEnabled();
+        binding.physicsLayout.getPhysics().isPhysicsEnabled();
+        binding.physicsLayout.getPhysics().setOnCollisionListener(new Physics.OnCollisionListener() {
+            @Override
+            public void onCollisionEntered(int i, int i1) {
+
+            }
+
+            @Override
+            public void onCollisionExited(int i, int i1) {
+
+            }
+        });
+
 
 
         TestRVAdapter = new TestAdapter(coursesArrayList,TestActivity.this);
@@ -43,7 +58,7 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void lodeitem() {
-        FirebaseFirestore.getInstance().collection("info freedom").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection("Notes").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 

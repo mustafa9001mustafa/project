@@ -11,7 +11,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.konden.freedom.fragment.ListCallback;
+import com.konden.freedom.interfaces.ListCallback;
+import com.konden.freedom.interfaces.ProcessCallback;
 import com.konden.freedom.model.Test;
 
 import java.util.ArrayList;
@@ -49,6 +50,22 @@ public class FirebaseFireStoreController {
                 }else {
                     callback.onFailure();
                 }
+            }
+        });
+    }
+
+
+    //CRUD
+    public void create(Test note, ProcessCallback callback) {
+        fireStore.collection("Notes").add(note.toMap()).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                callback.onSuccess("Note created successfully");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                callback.onFailure("Failed to create note");
             }
         });
     }

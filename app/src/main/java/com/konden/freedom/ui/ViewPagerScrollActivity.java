@@ -3,12 +3,12 @@ package com.konden.freedom.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
@@ -21,8 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.konden.freedom.R;
 import com.konden.freedom.adapter.OnBoardingAdapter;
 import com.konden.freedom.databinding.ActivityViewPagerScrollBinding;
+import com.konden.freedom.databinding.ActivityViewPagerScrollBinding;
 import com.konden.freedom.model.OnBoardingItem;
-import com.konden.freedom.model.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +34,8 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+//    Test test;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,17 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
         getdata();
+//        FirebaseFireStoreController.getInstance().create(getNote() , new ProcessCallback() {
+//            @Override
+//            public void onSuccess(String message) {
+//                Log.e("TAG", "onSuccess: "+message );
+//            }
+//
+//            @Override
+//            public void onFailure(String message) {
+//                Log.d("Note", "onFailure: " + message);
+//            }
+//        });
 
 
 //        Info info = new Info();
@@ -127,7 +140,12 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
             if (binding.viewpagerFragmentOnBoarding.getCurrentItem() + 1 < adapter.getItemCount())
                 binding.viewpagerFragmentOnBoarding.setCurrentItem(binding.viewpagerFragmentOnBoarding.getCurrentItem() + 1);
             else
-                startActivity(new Intent(ViewPagerScrollActivity.this, HomeActivity.class));
+                startActivity(new Intent(ViewPagerScrollActivity.this, LoginActivity.class));
+            ///////////////////////////////////////////
+            ///////////////////////////////////////////
+            ///////////////////////////////////////////
+            ///////////////////////////////////////////
+            ///////////////////////////////////////////
         });
     }
 

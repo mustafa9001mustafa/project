@@ -2,6 +2,7 @@ package com.konden.freedom.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.konden.freedom.databinding.ActivityLoginBinding
 
@@ -26,7 +27,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun LOGIN_GUEST() {
-        startActivity(Intent(this, MainActivity::class.java))
+        binding.registerBtn.setOnClickListener( View.OnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        })
     }
 
     private fun CHECK_NUMBER_AND_LOGIN() {

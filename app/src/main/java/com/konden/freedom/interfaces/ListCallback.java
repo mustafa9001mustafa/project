@@ -1,4 +1,4 @@
-package com.konden.freedom.fragment;
+package com.konden.freedom.interfaces;
 
 import java.util.ArrayList;
 

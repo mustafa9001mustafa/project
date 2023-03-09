@@ -11,6 +11,8 @@ import com.konden.freedom.model.InfoAllFreedom
 class InfoAdapter(private val infoList: ArrayList<InfoAllFreedom>) :
     RecyclerView.Adapter<InfoAdapter.MyViewHolderInfo>() {
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoAdapter.MyViewHolderInfo {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.item_info, parent, false)
@@ -18,16 +20,13 @@ class InfoAdapter(private val infoList: ArrayList<InfoAllFreedom>) :
     }
 
     override fun onBindViewHolder(holder: InfoAdapter.MyViewHolderInfo, position: Int) {
-        holder.name.text = infoList[position].info_name
-        holder.number.text = infoList[position].info_number.toString()
+        holder.name.text = infoList[position].name
+        holder.number.text = infoList[position].number.toString()
     }
 
     override fun getItemCount(): Int {
         return infoList.size
     }
-
-
-
 
      class MyViewHolderInfo(itemview: View) : RecyclerView.ViewHolder(itemview) {
         val name: TextView = itemview.findViewById(R.id.text_info_name)
