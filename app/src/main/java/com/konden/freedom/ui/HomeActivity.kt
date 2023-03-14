@@ -70,7 +70,7 @@ class HomeActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             binding.bottomNav.show(2, true)
 
-        }, 10)
+        }, 50)
 
         //set menu item on click listener
 

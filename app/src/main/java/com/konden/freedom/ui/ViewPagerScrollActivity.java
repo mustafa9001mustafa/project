@@ -3,6 +3,7 @@ package com.konden.freedom.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,23 +43,10 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
         binding = ActivityViewPagerScrollBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
         getdata();
-//        FirebaseFireStoreController.getInstance().create(getNote() , new ProcessCallback() {
-//            @Override
-//            public void onSuccess(String message) {
-//                Log.e("TAG", "onSuccess: "+message );
-//            }
 //
-//            @Override
-//            public void onFailure(String message) {
-//                Log.d("Note", "onFailure: " + message);
-//            }
-//        });
-
-
 //        Info info = new Info();
 //        info.setName_freedom("captives");
 //        info.setNumber_freedom(4700);
@@ -72,18 +60,21 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
         // calling add value event listener method
         // for getting the values from database.
 
-        databaseReference.child("child").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                binding.text.setText(String.valueOf(snapshot.getValue().toString()));
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // calling on cancelled method when we receive
-                // any error or we are not able to get the data.
-                Toast.makeText(ViewPagerScrollActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        databaseReference.child("Worksheet").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                String x = snapshot.getValue().toString();
+////                binding.text.setText(String.valueOf(x));
+//
+//                Log.e("TAG", "onDataChange: "+x );
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                // calling on cancelled method when we receive
+//                // any error or we are not able to get the data.
+//                Toast.makeText(ViewPagerScrollActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
 /*    void enterReveal() {
