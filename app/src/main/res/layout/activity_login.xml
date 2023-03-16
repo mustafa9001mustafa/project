@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity">
+    tools:context=".app.ui.LoginActivity">
 
     <TextView
         android:id="@+id/welcome"
@@ -52,8 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_18sdp"
         android:layout_marginVertical="@dimen/_20sdp"
-        android:backgroundTint="#413D44"
-        android:text="تسجيل الدخول"
+        android:backgroundTint="@color/color_login"
+        android:text="الدخول"
         android:fontFamily="@font/ds"
         android:textSize="@dimen/_15ssp"
         android:textColor="@color/white"
@@ -72,7 +72,7 @@
         android:gravity="center"
         android:paddingVertical="@dimen/_8sdp"
         android:text="تسجيل كضيف"
-        android:textColor="#18384A"
+        android:textColor="@color/color_gest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login" />

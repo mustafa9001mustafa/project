@@ -4,21 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomeActivity">
-
+    tools:context=".app.ui.HomeActivity">
 
     <TextView
         android:id="@+id/text_not_necessary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="الأسرى في السجون"
+        android:text="إحصائيات الأسرى"
         android:paddingVertical="@dimen/_15sdp"
-        android:background="@drawable/onboarding_indicator_activity"
-        android:backgroundTint="@color/color_all"
-        android:textColor="@color/white"
-        android:layout_margin="@dimen/_15sdp"
-        android:fontFamily="@font/md"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/_18sdp"
         android:gravity="center"
+        android:fontFamily="@font/md"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,23 +23,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_15ssp"
-        android:backgroundTint="@color/color_all"
+        android:backgroundTint="@color/cool_black"
         android:background="@drawable/onboarding_indicator_activity"
         app:layout_constraintTop_toBottomOf="@+id/text_not_necessary"
+        app:reverseLayout="false" />
+
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_2sdp"
+        android:background="@color/cool_black"
+        android:fontFamily="@font/md"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:textSize="@dimen/_18ssp"
+        android:layout_marginVertical="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/text_not_necessary2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="الأخبار"
+        android:textColor="@color/black"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:gravity="center"
+        android:fontFamily="@font/md"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_news"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_not_necessary2"
+        app:layout_constraintVertical_bias="0.487"
         app:reverseLayout="false" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_loding"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
-        android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_not_necessary"
+        app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loding" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,7 @@
                 android:id="@+id/view"
                 android:layout_width="@dimen/_2sdp"
                 android:layout_height="0dp"
-                android:background="@color/white"
+                android:background="@color/colorSplashBackground"
                 android:fontFamily="@font/md"
                 android:paddingHorizontal="@dimen/_5sdp"
                 android:text="|"
@@ -41,14 +41,15 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottie_share"
-                android:layout_width="@dimen/_50sdp"
+                android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_50sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/share" />
+                android:rotation="-90"
+                app:lottie_rawRes="@raw/live" />
 
 
             <TextView
@@ -59,8 +60,8 @@
                 android:fontFamily="@font/md"
                 android:text="محكمة الاحتلال العسكرية تمدد اعتقال الشقيقين عمار ومراد الحمور من مدينة جنين المحتلة، ليومين بحجة استكمال التحقيق معهم فى مركز الجلمة وهما معتقلان منذ شهر"
                 android:textAlignment="viewStart"
-                android:textColor="@color/color_all"
-                android:textSize="@dimen/_12ssp"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_11ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lottie_share"
@@ -76,7 +77,7 @@
                 android:paddingHorizontal="@dimen/_5sdp"
                 android:text="تمديد الإعتقال لشقيقين من مدينة جنين"
                 android:textAlignment="viewStart"
-                android:textColor="@color/colorSplashBackground"
+                android:textColor="#FE4B5B"
                 android:textSize="@dimen/_18ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lottie_share"

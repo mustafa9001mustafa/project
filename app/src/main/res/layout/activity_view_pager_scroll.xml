@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.ViewPagerScrollActivity">
+    tools:context=".app.ui.ViewPagerScrollActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_on_boarding_action"
@@ -17,17 +17,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="43534"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="@+id/linear_layout" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager_fragment_on_boarding"
