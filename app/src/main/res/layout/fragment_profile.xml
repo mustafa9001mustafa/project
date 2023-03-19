@@ -8,13 +8,14 @@
     tools:context=".app.fragment.ProfileFragment">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="@dimen/_200sdp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
-        app:cardUseCompatPadding="true"
 
+        app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,22 +33,36 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
-                android:text="الإسم : أحمد ....."
+                android:text="الإسم : "
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/contre_free"
+                android:id="@+id/data_aser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
-                android:text="المدينة : القدس"
+                android:text="تاريخ الأسر : "
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_free" />
+
+
+
+            <TextView
+                android:id="@+id/data_freedom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_15sdp"
+                android:fontFamily="@font/md"
+                android:text="تاريخ الإفراج المتوقع : "
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/data_aser" />
 
             <TextView
                 android:id="@+id/numberDecimal"
@@ -56,35 +71,11 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
-                android:text="رقم الهوية : 43757438934"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="رقم الهوية : "
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contre_free" />
-
-            <TextView
-                android:id="@+id/contre_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginVertical="@dimen/_15sdp"
-                android:fontFamily="@font/md"
-                android:text="مكان الأسر :أحد أماكن السجون"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/numberDecimal" />
-
-            <TextView
-                android:id="@+id/count_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginVertical="@dimen/_15sdp"
-                android:fontFamily="@font/md"
-                android:text="مدة الحكم : 15 سنة."
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contre_place" />
-
+                app:layout_constraintTop_toBottomOf="@+id/data_freedom" />
 
             <TextView
                 android:id="@+id/map"
@@ -92,17 +83,32 @@
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/oval"
                 android:backgroundTint="@color/color_all"
                 android:fontFamily="@font/md"
-                android:textColor="@color/black"
-                android:text="الموقع"
                 android:gravity="center"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:text="الموقع"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginVertical="@dimen/_15sdp"
+        android:fontFamily="@font/md"
+        android:text="تسجيل الخروج"
+        android:textColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

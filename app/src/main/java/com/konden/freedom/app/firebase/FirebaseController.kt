@@ -3,6 +3,7 @@ package com.konden.freedom.app.firebase
 import javax.inject.Singleton
 
 
+
 //class FirebaseController private constructor() {
 //    private val instance: FirebaseController? = null
 //

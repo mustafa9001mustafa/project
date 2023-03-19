@@ -12,15 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_15ssp"
-
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="23dp"
         tools:listitem="@layout/item_danger" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_loding"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_width="@dimen/_51sdp"
+        android:layout_height="@dimen/_51sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

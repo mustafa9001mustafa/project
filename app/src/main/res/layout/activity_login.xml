@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ds"
+
         android:text="تسجيل الدخول"
         android:textColor="@color/black"
         android:layout_marginBottom="@dimen/_30sdp"
@@ -29,6 +30,7 @@
         android:layout_marginVertical="@dimen/_20sdp"
         android:hint="أدخل رقم الهوية"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,6 +57,7 @@
         android:backgroundTint="@color/color_login"
         android:text="الدخول"
         android:fontFamily="@font/ds"
+
         android:textSize="@dimen/_15ssp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +73,7 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:fontFamily="@font/as"
         android:gravity="center"
+
         android:paddingVertical="@dimen/_8sdp"
         android:text="تسجيل كضيف"
         android:textColor="@color/color_gest"

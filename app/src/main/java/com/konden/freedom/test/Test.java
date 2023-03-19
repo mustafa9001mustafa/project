@@ -7,8 +7,6 @@ public class Test {
     public String name;
     public int number;
 
-    public Test() {
-    }
 
     public Test(String name, int number) {
         this.name = name;

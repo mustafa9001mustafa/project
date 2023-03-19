@@ -12,7 +12,6 @@ class AdapterLive(var LiveList: ArrayList<LiveData>, var call:ListCall) :
     RecyclerView.Adapter<AdapterLive.ViewHolderLive>() {
 
     inner class ViewHolderLive(var v: ItemLiveBinding) : RecyclerView.ViewHolder(v.root) {}
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderLive {
         val binding = ItemLiveBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolderLive(binding)

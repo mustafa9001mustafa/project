@@ -9,9 +9,9 @@ class AppController : Application() {
         instance = this
 
     }
-    fun getInstance(): AppController? {
-        return instance
-    }
+//    fun getInstance(): AppController? {
+//        return instance
+//    }
 
     companion object {
         lateinit var instance: AppController

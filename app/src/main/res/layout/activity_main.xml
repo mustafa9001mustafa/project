@@ -11,6 +11,7 @@
         android:id="@+id/physics_layout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+
         app:bounds="true"
         app:boundsSize="50dp"
         app:fling="true"

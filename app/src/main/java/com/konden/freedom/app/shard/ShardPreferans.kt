@@ -1,8 +1,8 @@
 package com.konden.freedom.app.shard
 
 import android.app.Activity
-import android.content.Context
 import android.content.SharedPreferences
+import com.konden.readandcuttext.appcontroller.AppController
 
 class ShardPreferans private constructor() {
 
@@ -10,16 +10,17 @@ class ShardPreferans private constructor() {
         private val sharePref = ShardPreferans()
         private lateinit var sharedPreferences: SharedPreferences
 
-        private val Dark = "dark"
-        private val Str = "str"
-        private val LastStr = "last_str"
+        private val Login = "Login"
+        private val Name = "name"
+        private val DataAsra = "dataAsra"
+        private val DataFreedom = "dataFreedom"
+        private val Number = "Number"
 
-        fun getInstance(context: Context): ShardPreferans {
+        fun getInstance(): ShardPreferans {
             if (!Companion::sharedPreferences.isInitialized) {
                 synchronized(ShardPreferans::class.java) {
-                    if (!Companion::sharedPreferences.isInitialized) {
-                        sharedPreferences =
-                            context.getSharedPreferences(context.packageName, Activity.MODE_PRIVATE)
+                    if (!Companion::sharedPreferences.isInitialized) { sharedPreferences =
+                        AppController.instance.getSharedPreferences(AppController.instance.packageName, Activity.MODE_PRIVATE)
                     }
                 }
             }
@@ -27,32 +28,52 @@ class ShardPreferans private constructor() {
         }
     }
 
-    var dark: Boolean = true
-        get() = sharedPreferences.getBoolean(Dark, field)
+    var statesLogin: Boolean = true
+        get() = sharedPreferences.getBoolean(Login, field)
 
-    fun saveDark(dark: Boolean) {
+    fun saveLogin(dark: Boolean) {
         sharedPreferences.edit()
-            .putBoolean(Dark, dark)
+            .putBoolean(Login, dark)
             .apply()
     }
 
 
-    val str: String? = null
-        get() = sharedPreferences.getString(Str, field)
+    val getName: String? = null
+        get() = sharedPreferences.getString(Name, field)
 
-    fun saveStr(str: String) {
+    fun saveName(str: String) {
         sharedPreferences.edit()
-            .putString(Str, str)
+            .putString(Name, str)
             .apply()
     }
 
 
-    var Last_str: Boolean = false
-        get() = sharedPreferences.getBoolean(LastStr, field)
+    val getDataAser: String? = null
+        get() = sharedPreferences.getString(DataAsra, field)
 
-    fun saveLast_str(last_string: Boolean) {
+    fun saveDataAser(str: String) {
         sharedPreferences.edit()
-            .putBoolean(LastStr, last_string)
+            .putString(DataAsra, str)
+            .apply()
+    }
+
+
+    val getDataFreedom: String? = null
+        get() = sharedPreferences.getString(DataFreedom, field)
+
+    fun saveDataFreedom(str: String) {
+        sharedPreferences.edit()
+            .putString(DataFreedom, str)
+            .apply()
+    }
+
+
+    val getNumber: String? = null
+        get() = sharedPreferences.getString(Number, field)
+
+    fun saveNumber(str: String) {
+        sharedPreferences.edit()
+            .putString(Number, str)
             .apply()
     }
 
@@ -65,6 +86,9 @@ class ShardPreferans private constructor() {
         }
         return !ranBefore
     }
+    fun clear() {
+        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).apply()
 
+    }
 
 }

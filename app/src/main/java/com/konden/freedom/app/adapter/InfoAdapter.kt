@@ -26,8 +26,8 @@ class InfoAdapter(private val infoList: ArrayList<InfoAllFreedom>) :
         return infoList.size
     }
 
-     class MyViewHolderInfo(itemview: View) : RecyclerView.ViewHolder(itemview) {
-        val name: TextView = itemview.findViewById(R.id.text_info_name)
-        val number: TextView = itemview.findViewById(R.id.text_info_number)
+     class MyViewHolderInfo(item_view: View) : RecyclerView.ViewHolder(item_view) {
+        val name: TextView = item_view.findViewById(R.id.text_info_name)
+        val number: TextView = item_view.findViewById(R.id.text_info_number)
     }
 }

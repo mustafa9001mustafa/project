@@ -1,4 +1,4 @@
-package com.konden.freedom.app.appcontroller;
+package com.konden.freedom.test.friebases;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

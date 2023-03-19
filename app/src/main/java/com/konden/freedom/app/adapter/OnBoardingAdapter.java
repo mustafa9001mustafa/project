@@ -15,7 +15,7 @@ import java.util.List;
 
 public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingViewHolder> {
 
-    private List<OnBoardingItem> onBoardingItems;
+    private final List<OnBoardingItem> onBoardingItems;
 
     public OnBoardingAdapter(List<OnBoardingItem> onBoardingItems) {
         this.onBoardingItems = onBoardingItems;

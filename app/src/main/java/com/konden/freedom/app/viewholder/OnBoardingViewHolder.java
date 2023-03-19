@@ -15,6 +15,7 @@ public class OnBoardingViewHolder extends RecyclerView.ViewHolder {
     public OnBoardingViewHolder(@NonNull View itemView) {
         super(itemView);
         binding = ItemOnBoardingBinding.bind(itemView);
+
     }
 
 

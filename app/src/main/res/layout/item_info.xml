@@ -49,11 +49,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginVertical="@dimen/_10sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="444"
+                android:text="1"
                 android:fontFamily="@font/md"
                 android:textSize="@dimen/_15ssp"
-                android:textColor="#00B9FF"
-                />
+                android:textColor="#00B9FF" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -1,6 +1,5 @@
 package com.konden.freedom.app.ui
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -42,20 +41,20 @@ class HomeActivity : AppCompatActivity() {
 
         binding.bottomNav.setOnShowListener {
             if (it.id == 1) {
-                val fragment: DangersFragment = DangersFragment.newInstance("", "")
+                val fragment: DangersFragment = DangersFragment.newInstance()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_fragment, fragment, null).commit()
 
 
             } else if (it.id == 2) {
 
-                val fragment: HomeFragment = HomeFragment.newInstance("", "")
+                val fragment: HomeFragment = HomeFragment.newInstance()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_fragment, fragment, null).commit()
 
 
             } else if (it.id == 3) {
-                val fragment: ProfileFragment = ProfileFragment.newInstance("", "")
+                val fragment: ProfileFragment = ProfileFragment.newInstance()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_fragment, fragment, null).commit()
             }
@@ -69,28 +68,6 @@ class HomeActivity : AppCompatActivity() {
             binding.bottomNav.show(2, true)
 
         }, 50)
-
-        //set menu item on click listener
-
-        //set menu item on click listener
-//        binding.bottomNav.setOnClickMenuListener(object : ClickListener() {
-//            fun onClickItem(item: Model?) {
-//                //display a toast
-////                Toast.makeText(getApplicationContext(), " You clicked " + item.getId(), Toast.LENGTH_SHORT).show();
-//            }
-//        })
-
-        //set on reselect listener
-
-        //set on reselect listener
-//        binding.bottomNav.setOnReselectListener(object :  {
-//            fun onReselectItem(item: MeowBottomNavigation.Model?) {
-//                //display a toast
-////                Toast.makeText(getApplicationContext(), " You reselected " + item.getId(), Toast.LENGTH_SHORT).show();
-//            }
-//        })
-
-        //set count to dashboard item
 
         //set count to dashboard item
 //        binding.bottomNav.setCount(1, "*")

@@ -7,7 +7,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
+import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivityLoginBinding
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -56,32 +58,83 @@ class LoginActivity : AppCompatActivity() {
     private fun readnumber(number: Editable?) {
 //        for (i in 0..22833) {
 
-        database = FirebaseDatabase.getInstance().getReference("Worksheet")
 
-//        }
+        val mDatabaseRef = FirebaseDatabase.getInstance().getReference("Worksheet")
 
-                database .child(number.toString())
+        val query = mDatabaseRef.orderByChild("رقم الهوية").equalTo(number.toString())
 
-//            .orderByChild("رقم الهوية")
-//            .equalTo(number.toString())
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
 
-            .get().addOnSuccessListener {
-                if (it.exists()) {
-                    val number_id = it.child("رقم الهوية").value
-                    Toast.makeText(this@LoginActivity, "ok" + number_id, Toast.LENGTH_SHORT).show()
-                    binding.login.text = number_id.toString()
+
+                    for (data in dataSnapshot.children) {
+                        val name = data.child("الاسم").value
+                        val data_aser = data.child("تاريخ الأسر").value
+                        val data_freedom = data.child("تاريخ الافراج المتوقع").value
+                        val number_id = data.child("رقم الهوية").value
+                        ShardPreferans.getInstance().saveName(name.toString())
+                        ShardPreferans.getInstance()
+                            .saveDataAser(data_aser.toString())
+                        ShardPreferans.getInstance()
+                            .saveDataFreedom(data_freedom.toString())
+                        ShardPreferans.getInstance()
+                            .saveNumber(number_id.toString())
+                        ShardPreferans.getInstance().saveLogin(true)
+
+                        if (ShardPreferans.getInstance().statesLogin == true){
+                            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                            Toast.makeText(this@LoginActivity, "تم تسجيل الدخول", Toast.LENGTH_SHORT)
+                                .show()
+                        }else
+                            Toast.makeText(this@LoginActivity, "Something with wrong", Toast.LENGTH_SHORT)
+                                .show()
+
+                    }
 
                 } else
-                    Toast.makeText(this@LoginActivity, "المستخدم غير موجود", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@LoginActivity, "رقم الهوية غير موجود", Toast.LENGTH_SHORT)
                         .show()
 
-            }.addOnCanceledListener {
-                Toast.makeText(
-                    this@LoginActivity,
-                    "حدث خطأ ما , أعد تسجيل الدخول لاحقا",
-                    Toast.LENGTH_SHORT
-                ).show()
-
             }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@LoginActivity, "Something with wrong", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        })
+
+//        database = FirebaseDatabase.getInstance().getReference("Worksheet")
+
+//        database
+////            .child()
+//            .child(number.toString()).get().addOnSuccessListener {
+//
+//
+//
+//
+//
+//                if (it.exists()) {
+//
+//
+//
+//
+//
+//                    val number_id = it.child("رقم الهوية").value
+//                    Toast.makeText(this@LoginActivity, "ok" + number_id, Toast.LENGTH_SHORT).show()
+//                    binding.login.text = number_id.toString()
+//
+//                } else
+//                    Toast.makeText(this@LoginActivity, "المستخدم غير موجود", Toast.LENGTH_SHORT)
+//                        .show()
+//
+//            }.addOnCanceledListener {
+//                Toast.makeText(
+//                    this@LoginActivity,
+//                    "حدث خطأ ما , أعد تسجيل الدخول لاحقا",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//
+//            }
     }
 }

@@ -83,7 +83,7 @@
                 app:layout_constraintStart_toEndOf="@+id/lottie_share"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!--            <com.mikhaellopez.circularimageview.CircularImageView-->
+<!--            <com.mikhaellopez.circularimageview.CircularImageView-->
 <!--                android:id="@+id/image_adv"-->
 <!--                android:layout_width="@dimen/_65sdp"-->
 <!--                android:layout_height="@dimen/_65sdp"-->

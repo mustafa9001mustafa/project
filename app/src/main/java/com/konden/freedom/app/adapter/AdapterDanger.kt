@@ -16,7 +16,6 @@ class AdapterDanger(var dangerList: ArrayList<DangerData> , var call:ListCall) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHOlderDanger {
         val binding = ItemDangerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHOlderDanger(binding)
-
     }
 
     override fun getItemCount(): Int {

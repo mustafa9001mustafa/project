@@ -67,9 +67,6 @@ dependencies {
     // fButton
     implementation 'info.hoang8f:fbutton:1.0.5'
 
-    // library one
-    implementation "com.github.skydoves:androidribbon:1.0.4"
-
 
     // Animations
     implementation 'com.airbnb.android:lottie:5.2.0'
@@ -79,9 +76,6 @@ dependencies {
 
 //    // language
 //    implementation "com.github.YarikSOffice:lingver:1.3.0"
-
-    // reed more
-    implementation 'kr.co.prnd:readmore-textview:1.0.0'
 
 
     // new Material Design

@@ -1,15 +1,11 @@
 package com.konden.freedom.app.ui
 
-import android.Manifest
-import android.app.Activity
+
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivitySplachScreenBinding
 import com.konden.storonline.animations.Animations
@@ -23,29 +19,28 @@ class SplachScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplachScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        viewModel = ViewModelProvider(this)[WordViewModel::class.java]
-        if (Build.VERSION.SDK_INT >= 23) {
-            ExternalStoragePermissions.verifyStoragePermissions(this)
-        }
+
     }
 
     override fun onStart() {
         super.onStart()
 
-
         val myCar = Animations()
         binding.tvSplach.animation = myCar.a5_FadeIn(this@SplachScreen)
         Handler(Looper.getMainLooper()).postDelayed({
-
-            if (ShardPreferans.getInstance(this@SplachScreen).isFirstTimeOther() == true)
+            if (ShardPreferans.getInstance().isFirstTimeOther() == true)
                 startActivity(Intent(this@SplachScreen, ViewPagerScrollActivity::class.java))
-            else
-                startActivity(Intent(this@SplachScreen, LoginActivity::class.java))
+            else{
+                if (ShardPreferans.getInstance().statesLogin == true){
+                    startActivity(Intent(this@SplachScreen, HomeActivity::class.java))
+                } else {
+                    startActivity(Intent(this@SplachScreen, LoginActivity::class.java))
 
+                }
 
+            }
 
         }, 3200)
-
 
 //        val database = Firebase.
 //        val myRef = database.getReference("message")
@@ -62,30 +57,5 @@ class SplachScreen : AppCompatActivity() {
 //        }, 2000)
 //
 
-    }
-
-
-    internal abstract class ExternalStoragePermissions(callingActivity: Activity?) {
-        companion object {
-            private const val REQUEST_EXTERNAL_STORAGE = 1
-            private val PERMISSIONS_STORAGE = arrayOf<String>(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
-
-            // Note call this method
-            fun verifyStoragePermissions(activity: Activity?) {
-                val permission = ActivityCompat.checkSelfPermission(
-                    activity!!,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-                if (permission != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(
-                        activity,
-                        PERMISSIONS_STORAGE,
-                        REQUEST_EXTERNAL_STORAGE
-                    )
-                }
-            }
-        }
     }
 }

@@ -1,6 +1,5 @@
 package com.konden.freedom.app.fragment
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -17,23 +16,16 @@ import com.konden.freedom.app.adapter.AdapterDanger
 import com.konden.freedom.app.interfaces.ListCall
 import com.konden.freedom.app.model.DangerData
 import com.konden.freedom.databinding.FragmentDangersBinding
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+
 class DangersFragment : Fragment(), ListCall {
 
     private lateinit var DangerDataArrayList: ArrayList<DangerData>
     private lateinit var binding: FragmentDangersBinding
     var dbData = Firebase.firestore
-    private lateinit var list_call: ListCall
-    private var param1: String? = null
-    private var param2: String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -75,11 +67,10 @@ class DangersFragment : Fragment(), ListCall {
     companion object {
 
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             DangersFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
                 }
             }
     }
