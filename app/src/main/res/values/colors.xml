@@ -6,7 +6,10 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="just_black">#000000</color>
+
     <color name="cool_black">#222B43</color>
+    <color name="cool_black2">#222B43</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorSplashBackground">#FFFFFFFF</color>
     <color name="white_medim">#F1F1F1</color>
@@ -14,4 +17,6 @@
     <color name="color_all">#6B9EE8</color>
     <color name="color_gest">#18384A</color>
     <color name="color_login">#413D44</color>
+    <color name="color_login_now">#99000000</color>
+    <color name="color_rv_all">#3464AA</color>
 </resources>

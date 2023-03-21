@@ -1,4 +1,4 @@
-package com.konden.freedom.app.fragment
+package com.konden.freedom.app.fragment.bsec
 
 import android.content.Intent
 import android.net.Uri
@@ -86,6 +86,8 @@ class HomeFragment : Fragment() , ListCall{
     private fun getdata() {
         db.collection("Notes").orderBy("name").get().addOnSuccessListener {
             if (!it.isEmpty){
+                binding.lottieLoding.visibility = View.GONE
+
                 for (data in it.documents) {
                     val user: InfoAllFreedom? =
                         data.toObject<InfoAllFreedom>(InfoAllFreedom::class.java)

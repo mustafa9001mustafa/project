@@ -1,4 +1,4 @@
-package com.konden.freedom.app.fragment
+package com.konden.freedom.app.fragment.bsec
 
 import android.content.Intent
 import android.os.Bundle

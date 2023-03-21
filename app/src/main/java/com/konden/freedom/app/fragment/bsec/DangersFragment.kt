@@ -1,4 +1,4 @@
-package com.konden.freedom.app.fragment
+package com.konden.freedom.app.fragment.bsec
 
 import android.content.Intent
 import android.net.Uri
@@ -38,7 +38,7 @@ class DangersFragment : Fragment(), ListCall {
         binding.rv.setHasFixedSize(true)
         DangerDataArrayList = arrayListOf()
 
-//        getdata()
+        getdata()
         return binding.root
     }
 

@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.konden.freedom.R
 import com.konden.freedom.databinding.ActivityHomeBinding
-import com.konden.freedom.app.fragment.DangersFragment
-import com.konden.freedom.app.fragment.HomeFragment
-import com.konden.freedom.app.fragment.ProfileFragment
+import com.konden.freedom.app.fragment.bsec.DangersFragment
+import com.konden.freedom.app.fragment.bsec.HomeFragment
+import com.konden.freedom.app.fragment.bsec.ProfileFragment
 
 
 class HomeActivity : AppCompatActivity() {

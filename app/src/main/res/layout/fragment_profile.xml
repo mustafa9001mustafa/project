@@ -5,21 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".app.fragment.ProfileFragment">
+    tools:context=".app.fragment.bsec.ProfileFragment">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:background="@drawable/just_back_activity"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/text_not_necessary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="الملف الشخصي"
+        android:paddingVertical="@dimen/_15sdp"
+        android:textColor="@color/colorSplashBackground"
+        android:layout_margin="@dimen/_18sdp"
+        android:gravity="center"
+        android:textSize="@dimen/_14ssp"
+        android:fontFamily="@font/md"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@color/colorSplashBackground"
         app:cardCornerRadius="10dp"
-
+        app:cardElevation="@dimen/_15sdp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:outlineSpotShadowColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/text_not_necessary">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,7 +56,7 @@
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
                 android:text="الإسم : "
-                android:textColor="@color/black"
+                android:textColor="@color/just_black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,10 +68,9 @@
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
                 android:text="تاريخ الأسر : "
-                android:textColor="@color/black"
+                android:textColor="@color/just_black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_free" />
-
 
 
             <TextView
@@ -60,7 +81,7 @@
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
                 android:text="تاريخ الإفراج المتوقع : "
-                android:textColor="@color/black"
+                android:textColor="@color/just_black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/data_aser" />
 
@@ -71,9 +92,9 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:text="رقم الهوية : "
-                android:textColor="@color/black"
+                android:textColor="@color/just_black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/data_freedom" />
 
@@ -103,7 +124,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginVertical="@dimen/_15sdp"
         android:fontFamily="@font/md"
         android:text="تسجيل الخروج"
         android:textColor="#FF0000"

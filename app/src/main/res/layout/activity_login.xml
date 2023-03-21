@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ds"
-
         android:text="تسجيل الدخول"
         android:textColor="@color/black"
         android:layout_marginBottom="@dimen/_30sdp"
@@ -41,7 +40,7 @@
             android:id="@+id/edit_text_email"
             android:layout_width="match_parent"
             android:fontFamily="@font/ds"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -57,13 +56,11 @@
         android:backgroundTint="@color/color_login"
         android:text="الدخول"
         android:fontFamily="@font/ds"
-
         android:textSize="@dimen/_15ssp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/filled_text_number" />
-
 
     <TextView
         android:id="@+id/register_btn"
@@ -80,6 +77,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login" />
+
+    <ImageView
+        android:id="@+id/back_not_necessary"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        android:src="@color/color_login_now"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_icon_loading"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_autoPlay="true"
+        android:visibility="gone"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading1" />
+
+    <TextView
+        android:id="@+id/text_not_necessary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie_icon_loading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="@dimen/_16ssp"
+        android:fontFamily="@font/ds"
+        android:visibility="gone"
+        android:textColor="@color/colorSplashBackground"
+        android:text="إنتظر بعض الوقت"
+        />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

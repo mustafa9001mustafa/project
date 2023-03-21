@@ -4,7 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.ui.HomeActivity">
+    tools:context="app.fragment.bsec.HomeFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/just_back_activity"
+        app:layout_constraintBottom_toBottomOf="@+id/rv"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_not_necessary"
@@ -12,9 +19,10 @@
         android:layout_height="wrap_content"
         android:text="إحصائيات الأسرى"
         android:paddingVertical="@dimen/_15sdp"
-        android:textColor="@color/black"
+        android:textColor="@color/colorSplashBackground"
         android:layout_margin="@dimen/_18sdp"
         android:gravity="center"
+        android:textSize="@dimen/_14ssp"
         android:fontFamily="@font/md"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_14ssp"
         android:backgroundTint="@color/cool_black"
-        android:background="@drawable/onboarding_indicator_activity"
         app:layout_constraintTop_toBottomOf="@+id/text_not_necessary"
         app:reverseLayout="false" />
 
@@ -34,7 +41,7 @@
         android:id="@+id/view"
         android:layout_width="0dp"
         android:layout_height="@dimen/_2sdp"
-        android:background="@color/cool_black"
+        android:background="@color/cool_black2"
         android:fontFamily="@font/md"
         android:layout_marginHorizontal="@dimen/_20sdp"
         android:paddingHorizontal="@dimen/_5sdp"
@@ -54,6 +61,7 @@
         android:textColor="@color/black"
         android:layout_marginVertical="@dimen/_5sdp"
         android:gravity="center"
+        android:textSize="@dimen/_14ssp"
         android:fontFamily="@font/md"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 

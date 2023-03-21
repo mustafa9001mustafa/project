@@ -50,7 +50,6 @@ class LoginActivity : AppCompatActivity() {
                     "أدخل رقم الهوية لتسجيل الدخور",
                     Toast.LENGTH_SHORT
                 ).show()
-
         })
 
     }
@@ -58,6 +57,11 @@ class LoginActivity : AppCompatActivity() {
     private fun readnumber(number: Editable?) {
 //        for (i in 0..22833) {
 
+        binding.textNotNecessary.visibility = View.VISIBLE
+        binding.backNotNecessary.visibility = View.VISIBLE
+        binding.lottieIconLoading.visibility = View.VISIBLE
+        binding.lottieIconLoading.bringToFront()
+        binding.textNotNecessary.bringToFront()
 
         val mDatabaseRef = FirebaseDatabase.getInstance().getReference("Worksheet")
 
@@ -66,41 +70,67 @@ class LoginActivity : AppCompatActivity() {
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
-
+                    binding.textNotNecessary.visibility = View.GONE
+                    binding.backNotNecessary.visibility = View.GONE
+                    binding.lottieIconLoading.visibility = View.GONE
 
                     for (data in dataSnapshot.children) {
                         val name = data.child("الاسم").value
                         val data_aser = data.child("تاريخ الأسر").value
                         val data_freedom = data.child("تاريخ الافراج المتوقع").value
                         val number_id = data.child("رقم الهوية").value
+
+
                         ShardPreferans.getInstance().saveName(name.toString())
-                        ShardPreferans.getInstance()
-                            .saveDataAser(data_aser.toString())
-                        ShardPreferans.getInstance()
-                            .saveDataFreedom(data_freedom.toString())
-                        ShardPreferans.getInstance()
-                            .saveNumber(number_id.toString())
+                        ShardPreferans.getInstance().saveDataAser(data_aser.toString())
+                        ShardPreferans.getInstance().saveDataFreedom(data_freedom.toString())
+                        ShardPreferans.getInstance().saveNumber(number_id.toString())
                         ShardPreferans.getInstance().saveLogin(true)
 
-                        if (ShardPreferans.getInstance().statesLogin == true){
+                        if (ShardPreferans.getInstance().statesLogin == true) {
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-                            Toast.makeText(this@LoginActivity, "تم تسجيل الدخول", Toast.LENGTH_SHORT)
+                            Toast.makeText(
+                                this@LoginActivity,
+                                "تم تسجيل الدخول",
+                                Toast.LENGTH_SHORT
+                            )
                                 .show()
-                        }else
-                            Toast.makeText(this@LoginActivity, "Something with wrong", Toast.LENGTH_SHORT)
+                        } else {
+
+                            Toast.makeText(
+                                this@LoginActivity,
+                                "Something with wrong",
+                                Toast.LENGTH_SHORT
+                            )
                                 .show()
+                            binding.textNotNecessary.visibility = View.GONE
+                            binding.backNotNecessary.visibility = View.GONE
+                            binding.lottieIconLoading.visibility = View.GONE
+                        }
+
 
                     }
 
-                } else
+                } else {
+                    binding.textNotNecessary.visibility = View.GONE
+                    binding.backNotNecessary.visibility = View.GONE
+                    binding.lottieIconLoading.visibility = View.GONE
                     Toast.makeText(this@LoginActivity, "رقم الهوية غير موجود", Toast.LENGTH_SHORT)
                         .show()
+                }
+
 
             }
 
             override fun onCancelled(error: DatabaseError) {
+                binding.textNotNecessary.visibility = View.GONE
+                binding.backNotNecessary.visibility = View.GONE
+                binding.lottieIconLoading.visibility = View.GONE
+
                 Toast.makeText(this@LoginActivity, "Something with wrong", Toast.LENGTH_SHORT)
                     .show()
+
+
             }
         })
 
