@@ -32,7 +32,7 @@ class DangersFragment : Fragment(), ListCall {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDangersBinding.inflate(inflater, container, false)
         binding.rv.layoutManager = LinearLayoutManager(activity)
         binding.rv.setHasFixedSize(true)

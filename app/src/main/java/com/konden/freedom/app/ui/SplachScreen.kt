@@ -55,7 +55,6 @@ class SplachScreen : AppCompatActivity() {
 //                    Log.e("TAG", "onCreate: ")
 //                })
 //        }, 2000)
-//
 
     }
 }

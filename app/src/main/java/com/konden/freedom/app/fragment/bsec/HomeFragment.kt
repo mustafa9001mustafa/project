@@ -60,7 +60,7 @@ class HomeFragment : Fragment() , ListCall{
 
 
         getdata()
-//        GetLiveData()
+        GetLiveData()
     }
 
     private fun GetLiveData() {
@@ -73,6 +73,7 @@ class HomeFragment : Fragment() , ListCall{
                     data.toObject<LiveData>(LiveData::class.java)
                 LiveArrayList.add(live!!)
             }
+
             binding.rvNews.adapter = AdapterLive(LiveArrayList,this)
         }
             .addOnFailureListener {

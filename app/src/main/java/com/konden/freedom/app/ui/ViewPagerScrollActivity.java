@@ -28,8 +28,6 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-//    Test test;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,7 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
-        getdata();
+//        getdata();
 //
 //        Info info = new Info();
 //        info.setName_freedom("captives");
@@ -48,46 +46,28 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
 
 
 
-    private void getdata() {
-
-        // calling add value event listener method
-        // for getting the values from database.
-
-//        databaseReference.child("Worksheet").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                String x = snapshot.getValue().toString();
-////                binding.text.setText(String.valueOf(x));
+//    private void getdata() {
 //
-//                Log.e("TAG", "onDataChange: "+x );
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                // calling on cancelled method when we receive
-//                // any error or we are not able to get the data.
-//                Toast.makeText(ViewPagerScrollActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-    }
+//        // calling add value event listener method
+//        // for getting the values from database.
+//
+////        databaseReference.child("Worksheet").addValueEventListener(new ValueEventListener() {
+////            @Override
+////            public void onDataChange(@NonNull DataSnapshot snapshot) {
+////                String x = snapshot.getValue().toString();
+//////                binding.text.setText(String.valueOf(x));
+////
+////                Log.e("TAG", "onDataChange: "+x );
+////            }
+////            @Override
+////            public void onCancelled(@NonNull DatabaseError error) {
+////                // calling on cancelled method when we receive
+////                // any error or we are not able to get the data.
+////                Toast.makeText(ViewPagerScrollActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+////            }
+////        });
+//    }
 
-/*    void enterReveal() {
-        // previously invisible view
-
-        // get the center for the clipping circle
-        int cx = binding.btnOnBoardingAction.getMeasuredWidth() / 2;
-        int cy = binding.btnOnBoardingAction.getMeasuredHeight() / 2;
-
-        // get the final radius for the clipping circle
-        int finalRadius = Math.max(binding.btnOnBoardingAction.getWidth(), binding.btnOnBoardingAction.getHeight()) / 2;
-
-        // create the animator for this view (the start radius is zero)
-        Animator anim =
-                ViewAnimationUtils.createCircularReveal(binding.btnOnBoardingAction, cx, cy, 0, finalRadius);
-
-        // make the view visible and start the animation
-        binding.btnOnBoardingAction.setVisibility(View.VISIBLE);
-        anim.start();
-    }*/
 
     @Override
     protected void onStart() {

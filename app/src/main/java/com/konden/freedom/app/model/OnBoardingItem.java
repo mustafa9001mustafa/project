@@ -1,8 +1,8 @@
 package com.konden.freedom.app.model;
 
 public class OnBoardingItem {
-    private String title;
-    private String description;
+    private final String title;
+    private final String description;
 
     public OnBoardingItem(String title, String description) {
         this.title = title;

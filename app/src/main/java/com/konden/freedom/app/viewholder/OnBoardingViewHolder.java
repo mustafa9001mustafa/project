@@ -18,7 +18,6 @@ public class OnBoardingViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-
     public void SetData(OnBoardingItem item) {
         binding.textTitle.setText(item.getTitle());
         binding.textDescription.setText(item.getDescription());

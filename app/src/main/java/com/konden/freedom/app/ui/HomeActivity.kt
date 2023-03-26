@@ -23,7 +23,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         allmethod()
-
     }
 
     override fun onStart() {

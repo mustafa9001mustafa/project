@@ -1,5 +1,6 @@
 package com.konden.freedom.app.fragment.bsec
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,6 +24,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
+//    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

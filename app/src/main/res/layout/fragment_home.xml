@@ -17,6 +17,7 @@
         android:id="@+id/text_not_necessary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:text="إحصائيات الأسرى"
         android:paddingVertical="@dimen/_15sdp"
         android:textColor="@color/colorSplashBackground"
