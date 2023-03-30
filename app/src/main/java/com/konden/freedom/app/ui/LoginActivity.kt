@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
     private fun LOGIN_GUEST() {
         binding.registerBtn.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
+            ShardPreferans.getInstance().GustLogin(true)
         })
     }
 
@@ -54,7 +55,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun readnumber(number: Editable?) {
-//        for (i in 0..22833) {
+        for (i in 0..10) {
+            print(i)
+        }
 
         binding.textNotNecessary.visibility = View.VISIBLE
         binding.backNotNecessary.visibility = View.VISIBLE
@@ -68,6 +71,8 @@ class LoginActivity : AppCompatActivity() {
 
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+
                 if (dataSnapshot.exists()) {
                     binding.textNotNecessary.visibility = View.GONE
                     binding.backNotNecessary.visibility = View.GONE
@@ -165,5 +170,12 @@ class LoginActivity : AppCompatActivity() {
 //                ).show()
 //
 //            }
+    }
+
+
+    override fun onStop() {
+        super.onStop()
+
+        finish()
     }
 }

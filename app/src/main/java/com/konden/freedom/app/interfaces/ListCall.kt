@@ -1,3 +1,3 @@
 package com.konden.freedom.app.interfaces
 
-interface ListCall { fun call() }
+interface ListCall { fun call(link : String) }

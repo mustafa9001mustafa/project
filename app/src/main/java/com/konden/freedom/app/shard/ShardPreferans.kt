@@ -11,6 +11,7 @@ class ShardPreferans private constructor() {
         private lateinit var sharedPreferences: SharedPreferences
 
         private val Login = "Login"
+        private val Gust = "Gust"
         private val Name = "name"
         private val DataAsra = "dataAsra"
         private val DataFreedom = "dataFreedom"
@@ -31,14 +32,24 @@ class ShardPreferans private constructor() {
     var statesLogin: Boolean = true
         get() = sharedPreferences.getBoolean(Login, field)
 
-    fun saveLogin(dark: Boolean) {
+    fun saveLogin(login: Boolean) {
         sharedPreferences.edit()
-            .putBoolean(Login, dark)
+            .putBoolean(Login, login)
             .apply()
     }
 
 
-    val getName: String? = null
+    var GustLogin: Boolean = false
+        get() = sharedPreferences.getBoolean(Gust, field)
+
+    fun GustLogin(gust: Boolean) {
+        sharedPreferences.edit()
+            .putBoolean(Gust, gust)
+            .apply()
+    }
+
+
+    val getName: String? = "غير معروف الإسم"
         get() = sharedPreferences.getString(Name, field)
 
     fun saveName(str: String) {
@@ -48,7 +59,7 @@ class ShardPreferans private constructor() {
     }
 
 
-    val getDataAser: String? = null
+    val getDataAser: String? = "غير معروف مكان متى تم أسره"
         get() = sharedPreferences.getString(DataAsra, field)
 
     fun saveDataAser(str: String) {
@@ -58,7 +69,7 @@ class ShardPreferans private constructor() {
     }
 
 
-    val getDataFreedom: String? = null
+    val getDataFreedom: String? = "غير معروف متى موعد التحرير"
         get() = sharedPreferences.getString(DataFreedom, field)
 
     fun saveDataFreedom(str: String) {
@@ -68,7 +79,7 @@ class ShardPreferans private constructor() {
     }
 
 
-    val getNumber: String? = null
+    val getNumber: String? = "غير معروف الرقم"
         get() = sharedPreferences.getString(Number, field)
 
     fun saveNumber(str: String) {
@@ -87,7 +98,7 @@ class ShardPreferans private constructor() {
         return !ranBefore
     }
     fun clear() {
-        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).apply()
+        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).remove(Gust).apply()
 
     }
 

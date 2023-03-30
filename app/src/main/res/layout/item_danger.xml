@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
-        app:cardBackgroundColor="@color/cool_black"
+        app:cardBackgroundColor="@color/cool_black3"
         app:cardCornerRadius="10dp"
         android:layout_marginVertical="@dimen/_15sdp"
         app:cardUseCompatPadding="true"
@@ -29,7 +29,7 @@
                 android:id="@+id/view"
                 android:layout_width="@dimen/_2sdp"
                 android:layout_height="0dp"
-                android:background="@color/white"
+                android:background="@color/colorSplashBackground"
                 android:fontFamily="@font/md"
                 android:paddingHorizontal="@dimen/_5sdp"
                 android:text="|"
@@ -49,24 +49,6 @@
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/share" />
-
-
-            <TextView
-                android:id="@+id/contre_free"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_8sdp"
-                android:fontFamily="@font/md"
-                android:text="محكمة الاحتلال العسكرية تمدد اعتقال الشقيقين عمار ومراد الحمور من مدينة جنين المحتلة، ليومين بحجة استكمال التحقيق معهم فى مركز الجلمة وهما معتقلان منذ شهر"
-                android:textAlignment="viewStart"
-                android:textColor="@color/color_all"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/lottie_share"
-                app:layout_constraintTop_toBottomOf="@+id/name_free" />
-
-
             <TextView
                 android:id="@+id/name_free"
                 android:layout_width="0dp"
@@ -81,6 +63,24 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lottie_share"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contre_free"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:fontFamily="@font/md"
+                android:text="محكمة الاحتلال العسكرية تمدد اعتقال الشقيقين عمار ومراد الحمور من مدينة جنين المحتلة، ليومين بحجة استكمال التحقيق معهم فى مركز الجلمة وهما معتقلان منذ شهر"
+                android:textAlignment="viewStart"
+                android:textColor="@color/cool_black_mode"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lottie_share"
+                app:layout_constraintTop_toBottomOf="@+id/name_free" />
+
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

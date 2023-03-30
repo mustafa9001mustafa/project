@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.konden.freedom.app.interfaces.ListCall
-import com.konden.freedom.app.model.LiveData
+import com.konden.freedom.app.model.AlsraData
 import com.konden.freedom.databinding.ItemLiveBinding
 
-class AdapterLive(var LiveList: ArrayList<LiveData>, var call:ListCall) :
+class AdapterLive(var LiveList: ArrayList<AlsraData>, var call:ListCall) :
     RecyclerView.Adapter<AdapterLive.ViewHolderLive>() {
 
     inner class ViewHolderLive(var v: ItemLiveBinding) : RecyclerView.ViewHolder(v.root) {}
@@ -23,11 +23,11 @@ class AdapterLive(var LiveList: ArrayList<LiveData>, var call:ListCall) :
     }
 
     override fun onBindViewHolder(holder: ViewHolderLive, position: Int) {
-        val live : LiveData = LiveList[position]
+        val live : AlsraData = LiveList[position]
         holder.v.nameFree.text = live.titel
         holder.v.contreFree.text = live.description
         holder.v.root.setOnClickListener(View.OnClickListener {
-            call.call()
+            call.call(live.Link.toString())
         })
     }
 }

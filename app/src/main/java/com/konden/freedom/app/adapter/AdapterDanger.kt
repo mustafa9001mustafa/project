@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.konden.freedom.app.interfaces.ListCall
-import com.konden.freedom.app.model.DangerData
+import com.konden.freedom.app.model.AlsraData
 import com.konden.freedom.databinding.ItemDangerBinding
 
-class AdapterDanger(var dangerList: ArrayList<DangerData> , var call:ListCall) :
+class AdapterDanger(var dangerList: ArrayList<AlsraData> , var call:ListCall) :
     RecyclerView.Adapter<AdapterDanger.ViewHOlderDanger>() {
 
     inner class ViewHOlderDanger(var v: ItemDangerBinding) : RecyclerView.ViewHolder(v.root) {}
@@ -23,11 +23,11 @@ class AdapterDanger(var dangerList: ArrayList<DangerData> , var call:ListCall) :
     }
 
     override fun onBindViewHolder(holder: ViewHOlderDanger, position: Int) {
-        val danger : DangerData = dangerList[position]
-        holder.v.nameFree.text = danger.titel
-        holder.v.contreFree.text = danger.description
+        val data : AlsraData = dangerList[position]
+        holder.v.nameFree.text = data.titel
+        holder.v.contreFree.text = data.description
         holder.v.root.setOnClickListener(View.OnClickListener {
-            call.call()
+            call.call(data.Link.toString())
         })
     }
 }

@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
-        app:cardBackgroundColor="@color/cool_black"
+        app:cardBackgroundColor="@color/cool_black3"
         app:cardCornerRadius="10dp"
         android:layout_marginVertical="@dimen/_15sdp"
         app:cardUseCompatPadding="true"
@@ -41,7 +41,7 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottie_share"
-                android:layout_width="@dimen/_70sdp"
+                android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,20 +52,6 @@
                 app:lottie_rawRes="@raw/live" />
 
 
-            <TextView
-                android:id="@+id/contre_free"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_8sdp"
-                android:fontFamily="@font/md"
-                android:text="محكمة الاحتلال العسكرية تمدد اعتقال الشقيقين عمار ومراد الحمور من مدينة جنين المحتلة، ليومين بحجة استكمال التحقيق معهم فى مركز الجلمة وهما معتقلان منذ شهر"
-                android:textAlignment="viewStart"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/_11ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/lottie_share"
-                app:layout_constraintTop_toBottomOf="@+id/name_free" />
 
 
             <TextView
@@ -74,29 +60,29 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_8sdp"
                 android:fontFamily="@font/md"
-                android:paddingHorizontal="@dimen/_5sdp"
                 android:text="تمديد الإعتقال لشقيقين من مدينة جنين"
                 android:textAlignment="viewStart"
-                android:textColor="#FE4B5B"
-                android:textSize="@dimen/_18ssp"
+                android:textColor="@color/colorSplashBackground"
+                android:textSize="@dimen/_19ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lottie_share"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <com.mikhaellopez.circularimageview.CircularImageView-->
-<!--                android:id="@+id/image_adv"-->
-<!--                android:layout_width="@dimen/_65sdp"-->
-<!--                android:layout_height="@dimen/_65sdp"-->
-<!--                android:layout_margin="@dimen/_8sdp"-->
-<!--                android:src="@drawable/baseline_send_24"-->
-<!--                app:civ_border_color="@color/read_more"-->
-<!--                app:civ_border_width="1dp"-->
-<!--                app:civ_shadow="true"-->
-<!--                app:civ_shadow_color="@color/read_more"-->
-<!--                app:civ_shadow_radius="@dimen/_4sdp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <TextView
+                android:id="@+id/contre_free"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:fontFamily="@font/md"
+                android:text="محكمة الاحتلال العسكرية تمدد اعتقال الشقيقين عمار ومراد الحمور من مدينة جنين المحتلة، ليومين بحجة استكمال التحقيق معهم فى مركز الجلمة وهما معتقلان منذ شهر"
+                android:textAlignment="viewStart"
+                android:textColor="@color/cool_black_mode"
+
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lottie_share"
+                app:layout_constraintTop_toBottomOf="@+id/name_free" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

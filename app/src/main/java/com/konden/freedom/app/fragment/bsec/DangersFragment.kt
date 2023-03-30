@@ -14,12 +14,12 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.konden.freedom.app.adapter.AdapterDanger
 import com.konden.freedom.app.interfaces.ListCall
-import com.konden.freedom.app.model.DangerData
+import com.konden.freedom.app.model.AlsraData
 import com.konden.freedom.databinding.FragmentDangersBinding
 
 class DangersFragment : Fragment(), ListCall {
 
-    private lateinit var DangerDataArrayList: ArrayList<DangerData>
+    private lateinit var DangerDataArrayList: ArrayList<AlsraData>
     private lateinit var binding: FragmentDangersBinding
     var dbData = Firebase.firestore
 
@@ -49,8 +49,8 @@ class DangersFragment : Fragment(), ListCall {
             binding.lottieLoding.cancelAnimation()
 
             for (data in it.documents) {
-                val danger_data: DangerData? =
-                    data.toObject<DangerData>(DangerData::class.java)
+                val danger_data: AlsraData? =
+                    data.toObject<AlsraData>(AlsraData::class.java)
 
                 DangerDataArrayList.add(danger_data!!)
             }
@@ -58,7 +58,6 @@ class DangersFragment : Fragment(), ListCall {
         }
             .addOnFailureListener {
                 Toast.makeText(activity, "error", Toast.LENGTH_SHORT).show()
-
                 Log.e("teeeeeeeeess", "teeeeeeeeess: ")
             }
     }
@@ -75,7 +74,7 @@ class DangersFragment : Fragment(), ListCall {
             }
     }
 
-    override fun call() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.mod.gov.ps/ar/categoryPosts/23")))
+    override fun call(link : String) {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
     }
 }

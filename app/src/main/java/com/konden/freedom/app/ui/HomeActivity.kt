@@ -10,6 +10,7 @@ import com.konden.freedom.R
 import com.konden.freedom.databinding.ActivityHomeBinding
 import com.konden.freedom.app.fragment.bsec.DangersFragment
 import com.konden.freedom.app.fragment.bsec.HomeFragment
+import com.konden.freedom.app.fragment.bsec.LiveFragment
 import com.konden.freedom.app.fragment.bsec.ProfileFragment
 
 
@@ -32,27 +33,38 @@ class HomeActivity : AppCompatActivity() {
     private fun allmethod() {
 
         //add menu items to bottom nav
-        binding.bottomNav.add(MeowBottomNavigation.Model(1, R.drawable.danger))
-        binding.bottomNav.add(MeowBottomNavigation.Model(2, R.drawable.home_icon))
-        binding.bottomNav.add(MeowBottomNavigation.Model(3, R.drawable.baseline_account_circle_24))
+        binding.bottomNav.add(MeowBottomNavigation.Model(1, R.drawable.home_icon))
+        binding.bottomNav.add(MeowBottomNavigation.Model(2, R.drawable.live))
+        binding.bottomNav.add(MeowBottomNavigation.Model(3, R.drawable.danger))
+        binding.bottomNav.add(MeowBottomNavigation.Model(4, R.drawable.baseline_account_circle_24))
 
         //set bottom nav on show listener
 
         binding.bottomNav.setOnShowListener {
             if (it.id == 1) {
-                val fragment: DangersFragment = DangersFragment.newInstance()
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_fragment, fragment, null).commit()
-
-
-            } else if (it.id == 2) {
 
                 val fragment: HomeFragment = HomeFragment.newInstance()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_fragment, fragment, null).commit()
 
 
+
+            } else if (it.id == 2) {
+
+                val fragment: LiveFragment = LiveFragment.newInstance()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_fragment, fragment, null).commit()
+
+
             } else if (it.id == 3) {
+
+                val fragment: DangersFragment = DangersFragment.newInstance()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_fragment, fragment, null).commit()
+
+
+
+            }else if (it.id == 4){
                 val fragment: ProfileFragment = ProfileFragment.newInstance()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_fragment, fragment, null).commit()
@@ -64,8 +76,7 @@ class HomeActivity : AppCompatActivity() {
 
         //set the initial fragment to show
         Handler(Looper.getMainLooper()).postDelayed({
-            binding.bottomNav.show(2, true)
-
+            binding.bottomNav.show(1, true)
         }, 50)
 
         //set count to dashboard item

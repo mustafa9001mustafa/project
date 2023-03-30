@@ -24,16 +24,4 @@ public class Test {
     public int getNumber() {
         return number;
     }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-
-    public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", name);
-        map.put("number", number);
-        return map;
-    }
 }

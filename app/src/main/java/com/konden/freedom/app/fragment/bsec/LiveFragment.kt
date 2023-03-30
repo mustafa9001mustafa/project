@@ -14,20 +14,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.konden.freedom.R
 import com.konden.freedom.app.adapter.AdapterLive
-import com.konden.freedom.app.adapter.InfoAdapter
 import com.konden.freedom.app.interfaces.ListCall
-import com.konden.freedom.databinding.FragmentHomeBinding
-import com.konden.freedom.app.model.InfoAllFreedom
 import com.konden.freedom.app.model.AlsraData
+import com.konden.freedom.databinding.FragmentHomeBinding
+import com.konden.freedom.databinding.FragmentLiveBinding
 
 
-
-class HomeFragment : Fragment() , ListCall{
-    private lateinit var FreedomArreyList: ArrayList<InfoAllFreedom>
-    private lateinit var binding : FragmentHomeBinding
+class LiveFragment : Fragment()  , ListCall {
+    private lateinit var LiveArrayList: ArrayList<AlsraData>
+    private lateinit var binding : FragmentLiveBinding
     private var db = Firebase.firestore
 
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            LiveFragment().apply {
+                arguments = Bundle().apply {
+
+                }
+            }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,32 +47,32 @@ class HomeFragment : Fragment() , ListCall{
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
+    ): View? {
+        binding = FragmentLiveBinding.inflate(inflater,container,false)
         db = FirebaseFirestore.getInstance()
         inshlase()
         return binding.root
     }
 
+
     private fun inshlase() {
-        binding.rv.layoutManager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
-        binding.rv.setHasFixedSize(true)
-        FreedomArreyList = arrayListOf()
-        getdata()
+        binding.rvNews.layoutManager = LinearLayoutManager(activity)
+        binding.rvNews.setHasFixedSize(true)
+        LiveArrayList = arrayListOf()
+        GetLiveData()
     }
 
-    private fun getdata() {
-        db.collection("Notes").orderBy("name").get().addOnSuccessListener {
-            if (!it.isEmpty){
+    private fun GetLiveData() {
+        db.collection("live").orderBy("titel").get().addOnSuccessListener {
+            if (!it.isEmpty)
                 binding.lottieLoding.visibility = View.GONE
-
-                for (data in it.documents) {
-                    val user: InfoAllFreedom? =
-                        data.toObject<InfoAllFreedom>(InfoAllFreedom::class.java)
-                    FreedomArreyList.add(user!!)
-                }
-                binding.rv.adapter = InfoAdapter(FreedomArreyList)
+            binding.lottieLoding.cancelAnimation()
+            for (data in it.documents) {
+                val live: AlsraData? = data.toObject<AlsraData>(AlsraData::class.java)
+                LiveArrayList.add(live!!)
             }
+
+            binding.rvNews.adapter = AdapterLive(LiveArrayList,this)
         }
             .addOnFailureListener {
                 Toast.makeText(activity, "error", Toast.LENGTH_SHORT).show()
@@ -73,18 +81,8 @@ class HomeFragment : Fragment() , ListCall{
             }
     }
 
-
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-
-                }
-            }
-    }
-
-    override fun call(link : String) {
+    override fun call(link: String) {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+
     }
 }

@@ -22,9 +22,6 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MYTestHolder>{
     }
 
 
-    public TestAdapter(Context context) {
-        this.context = context;
-    }
 
     public void add(Test test){
         list.add(test);
@@ -51,7 +48,6 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MYTestHolder>{
     public int getItemCount() {
         return list.size();
     }
-
     public class MYTestHolder extends RecyclerView.ViewHolder {
         ItemInfoBinding  binding;
         public MYTestHolder(@NonNull View itemView) {

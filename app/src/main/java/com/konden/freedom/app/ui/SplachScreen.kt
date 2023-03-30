@@ -31,7 +31,7 @@ class SplachScreen : AppCompatActivity() {
             if (ShardPreferans.getInstance().isFirstTimeOther() == true)
                 startActivity(Intent(this@SplachScreen, ViewPagerScrollActivity::class.java))
             else{
-                if (ShardPreferans.getInstance().statesLogin == true){
+                if (ShardPreferans.getInstance().statesLogin == true || ShardPreferans.getInstance().GustLogin == true){
                     startActivity(Intent(this@SplachScreen, HomeActivity::class.java))
                 } else {
                     startActivity(Intent(this@SplachScreen, LoginActivity::class.java))
@@ -49,6 +49,7 @@ class SplachScreen : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
+        finish()
 //        Handler(Looper.getMainLooper()).postDelayed({
 //            viewModel.allWords.observe(this,
 //                Observer<List<Any?>?> {

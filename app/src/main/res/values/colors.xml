@@ -9,14 +9,19 @@
     <color name="just_black">#000000</color>
 
     <color name="cool_black">#222B43</color>
-    <color name="cool_black2">#222B43</color>
+    <color name="cool_black2">#2D3751</color>
+    <color name="cool_black3">#344061</color>
+    <color name="cool_black_mode">#FFBB30</color>
+    <color name="cool_black_live">#FF5900</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorSplashBackground">#FFFFFFFF</color>
-    <color name="white_medim">#F1F1F1</color>
+    <color name="white_medvim">#EAEAEA</color>
     <color name="btn_color">#F57C00</color>
     <color name="color_all">#6B9EE8</color>
     <color name="color_gest">#18384A</color>
     <color name="color_login">#413D44</color>
     <color name="color_login_now">#99000000</color>
     <color name="color_rv_all">#3464AA</color>
+    <color name="color_text_rv">#171717</color>
+    <color name="red_live">#FD3E3E</color>
 </resources>
