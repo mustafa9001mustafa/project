@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
+
+
 //        binding.physicsLayout.physics.setOnCollisionListener(object : Physics.OnCollisionListener {
 //            override fun onCollisionEntered(i: Int, i1: Int) {
 //                if (i ==  R.id.ima && i1 ==  R.id.img)

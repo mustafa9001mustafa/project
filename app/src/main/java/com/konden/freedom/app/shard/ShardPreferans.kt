@@ -9,24 +9,37 @@ class ShardPreferans private constructor() {
     companion object {
         private val sharePref = ShardPreferans()
         private lateinit var sharedPreferences: SharedPreferences
-
         private val Login = "Login"
         private val Gust = "Gust"
         private val Name = "name"
         private val DataAsra = "dataAsra"
         private val DataFreedom = "dataFreedom"
         private val Number = "Number"
+        private val Size = "Size"
+        private val Dark = "dark"
+
 
         fun getInstance(): ShardPreferans {
             if (!Companion::sharedPreferences.isInitialized) {
                 synchronized(ShardPreferans::class.java) {
-                    if (!Companion::sharedPreferences.isInitialized) { sharedPreferences =
-                        AppController.instance.getSharedPreferences(AppController.instance.packageName, Activity.MODE_PRIVATE)
+                    if (!Companion::sharedPreferences.isInitialized) {
+                        sharedPreferences = AppController.instance.getSharedPreferences(AppController.instance.packageName, Activity.MODE_PRIVATE)
                     }
                 }
             }
             return sharePref
         }
+    }
+
+
+
+    var dark: Boolean = true
+        get() = sharedPreferences.getBoolean(Dark, field)
+
+    fun saveDark(dark: Boolean) {
+        sharedPreferences.edit()
+            .putBoolean(Dark, dark)
+            .apply()
     }
 
     var statesLogin: Boolean = true
@@ -35,6 +48,15 @@ class ShardPreferans private constructor() {
     fun saveLogin(login: Boolean) {
         sharedPreferences.edit()
             .putBoolean(Login, login)
+            .apply()
+    }
+
+    var GetSize: Boolean = true
+        get() = sharedPreferences.getBoolean(Size, field)
+
+    fun saveSize(login: Boolean) {
+        sharedPreferences.edit()
+            .putBoolean(Size, login)
             .apply()
     }
 
@@ -98,7 +120,7 @@ class ShardPreferans private constructor() {
         return !ranBefore
     }
     fun clear() {
-        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).remove(Gust).apply()
+        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).remove(Gust).remove(Size).remove(Dark).apply()
 
     }
 

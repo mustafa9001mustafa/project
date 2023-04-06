@@ -51,17 +51,17 @@ class LoginActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
         })
-
     }
 
     private fun readnumber(number: Editable?) {
-        for (i in 0..10) {
-            print(i)
-        }
+//        for (i in 0..10) {
+//            print(i)
+//        }
 
         binding.textNotNecessary.visibility = View.VISIBLE
         binding.backNotNecessary.visibility = View.VISIBLE
         binding.lottieIconLoading.visibility = View.VISIBLE
+        binding.login.visibility = View.INVISIBLE
         binding.lottieIconLoading.bringToFront()
         binding.textNotNecessary.bringToFront()
 
@@ -74,6 +74,7 @@ class LoginActivity : AppCompatActivity() {
 
 
                 if (dataSnapshot.exists()) {
+                    binding.login.visibility = View.VISIBLE
                     binding.textNotNecessary.visibility = View.GONE
                     binding.backNotNecessary.visibility = View.GONE
                     binding.lottieIconLoading.visibility = View.GONE
@@ -107,6 +108,7 @@ class LoginActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             )
                                 .show()
+                            binding.login.visibility = View.VISIBLE
                             binding.textNotNecessary.visibility = View.GONE
                             binding.backNotNecessary.visibility = View.GONE
                             binding.lottieIconLoading.visibility = View.GONE
@@ -116,6 +118,7 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                 } else {
+                    binding.login.visibility = View.VISIBLE
                     binding.textNotNecessary.visibility = View.GONE
                     binding.backNotNecessary.visibility = View.GONE
                     binding.lottieIconLoading.visibility = View.GONE
@@ -127,6 +130,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
+                binding.login.visibility = View.VISIBLE
                 binding.textNotNecessary.visibility = View.GONE
                 binding.backNotNecessary.visibility = View.GONE
                 binding.lottieIconLoading.visibility = View.GONE
@@ -173,6 +177,28 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+    private fun SizeALlText() {
+        if (ShardPreferans.getInstance().GetSize)
+            size_larg()
+        else
+            size_mid()
+    }
+    private fun size_mid() {
+        binding.login.textSize = 16f
+        binding.textNotNecessary.textSize = 16f
+        binding.registerBtn.textSize = 16f
+        binding.editTextEmail.textSize = 16f
+        binding.welcome.textSize = 16f
+
+    }
+
+    private fun size_larg() {
+        binding.login.textSize = 16f
+        binding.textNotNecessary.textSize = 16f
+        binding.registerBtn.textSize = 16f
+        binding.editTextEmail.textSize = 16f
+        binding.welcome.textSize = 16f
+    }
     override fun onStop() {
         super.onStop()
 

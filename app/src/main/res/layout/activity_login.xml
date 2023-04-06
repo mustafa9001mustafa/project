@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ds"
-        android:text="تسجيل الدخول"
+        android:text="@string/login"
         android:textColor="@color/black"
         android:layout_marginBottom="@dimen/_30sdp"
         android:textSize="@dimen/_20ssp"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_18sdp"
         android:layout_marginVertical="@dimen/_20sdp"
-        android:hint="أدخل رقم الهوية"
+        android:hint="@string/enter_number"
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:layout_marginHorizontal="@dimen/_18sdp"
         android:layout_marginVertical="@dimen/_20sdp"
         android:backgroundTint="@color/color_login"
-        android:text="الدخول"
+        android:text="@string/text_login"
         android:fontFamily="@font/ds"
         android:textSize="@dimen/_15ssp"
         android:textColor="@color/white"
@@ -72,7 +72,7 @@
         android:gravity="center"
 
         android:paddingVertical="@dimen/_8sdp"
-        android:text="تسجيل كضيف"
+        android:text="@string/gest"
         android:textColor="@color/color_gest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +111,7 @@
         android:fontFamily="@font/ds"
         android:visibility="gone"
         android:textColor="@color/colorSplashBackground"
-        android:text="إنتظر بعض الوقت"
+        android:text="@string/wait_a_faw_time"
         />
 
 

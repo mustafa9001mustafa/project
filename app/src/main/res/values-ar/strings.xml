@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">الحرية</string>
-
     <string name="test">تجربة</string>
     <string name="tester">تجربة</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="enter_number">أدخل رقم الهوية</string>
+    <string name="text_login">الدخول</string>
+    <string name="gest">تسجيل كضيف</string>
+    <string name="wait_a_faw_time">إنتظر بعض الوقت</string>
+    <string name="al_enthakat">الإنتهاكات</string>
+    <string name="new_live">الأخبار</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="name">الإسم :</string>
+    <string name="data_aser">تاريخ الأسر :</string>
+    <string name="data_freedom">تاريخ الإفراج المتوقع :</string>
+    <string name="number_kay">رقم الهوية :</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="prisoner_statistics">إحصائيات الأسرى</string>
+    <string name="web_site_asre">موقع الأسرى</string>
+    <string name="setting">الإعدادات</string>
+    <string name="about_app">عن التطبيق</string>
+    <string name="languages">اللغة</string>
+    <string name="o">o</string>
+    <string name="i">i</string>
+    <string name="dark_mode">الوضع الليلي</string>
+    <string name="size">حجم النص</string>
+    <string name="mid">متوسط</string>
+    <string name="english">English</string>
+    <string name="Arabic">العربية</string>
+    <string name="save_lan">حفظ اللغة</string>
+    <string name="choosethelanguage">إختر اللغة</string>
+    <string name="larg">كبير</string>
+    <string name="text_all_text">جميع الإعدادات في حالة التجربة</string>
+    <string name="prog_1">برنامج توفر حياة كريمة للأسرى</string>
+    <string name="prog_2">برنامج تمكين الأسرى المحررين</string>
+    <string name="prog_3">\"برنامج الدعم النفسي والإجتماعي \"</string>
+    <string name="text_prog_1">وذلك لضمان حياة كريمة لهم ورعاية أبنائهم وأسرهم\n</string>
+    <string name="text_prog_2">وذلك من خلال الإندماج في المجتمع وتأمين وظائف للأسرى\n</string>
+    <string name="text_prog_3">وهذا من خلال مشروع تواصل وزيارة عائلات الأسرى في بيوتهم \n</string>
+    <string name="text_prog_1_1">\" وذلك من خلال عدة صرف مخصصات رواتب شهرية \n\"</string>
+    <string name="text_prog_1_2">وتسهيلات و إعفاءات خاصة لعائلات الأسرى</string>
+    <string name="text_prog_2_1">\" ومشروع الرعاية الصحية وإسكان الأسرى المحررين \"</string>
+    <string name="text_prog_3_1">ومشروع مؤازرة عبر مشاركة الوزارة لحظة تجمعهم \n</string>
+    <string name="text_prog_3_2">أمام مقر الصليب</string>
+    <string name="go">دخول</string>
+    <string name="next">التالي</string>
+    <string name="about_my_app">معلومات حول التطبيق</string>
+    <string name="description_dialog">هو عبارة عن تطبيق حكومي يهدف إلى زيادة الوعي بالأسرى والمحررين وومتابعة آخر المستجدات الخاص بهم</string>
+    <string name="ok">تم</string>
 
 </resources>

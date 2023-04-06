@@ -51,6 +51,7 @@ class ProfileFragment : Fragment() {
 
         LOGOUT()
         LOGIN_TO()
+        SizeALlText()
 
 
         return binding.root
@@ -97,6 +98,34 @@ class ProfileFragment : Fragment() {
 
         binding.login.visibility = View.GONE
 
+    }
+
+    private fun SizeALlText() {
+        if (ShardPreferans.getInstance().GetSize)
+            size_larg()
+        else
+            size_mid()
+    }
+    private fun size_mid() {
+        binding.logout.textSize = 16f
+        binding.textNotNecessary.textSize = 16f
+        binding.login.textSize = 16f
+        binding.dataAser.textSize = 16f
+        binding.numberDecimal.textSize = 16f
+        binding.dataFreedom.textSize = 16f
+        binding.textView.textSize = 16f
+        binding.nameFree.textSize = 16f
+    }
+
+    private fun size_larg() {
+        binding.logout.textSize = 20f
+        binding.textNotNecessary.textSize = 20f
+        binding.login.textSize = 20f
+        binding.dataAser.textSize = 20f
+        binding.numberDecimal.textSize = 20f
+        binding.dataFreedom.textSize = 20f
+        binding.textView.textSize = 20f
+        binding.nameFree.textSize = 20f
     }
 
 }

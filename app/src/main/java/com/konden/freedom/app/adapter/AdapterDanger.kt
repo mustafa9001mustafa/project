@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.konden.freedom.app.interfaces.ListCall
 import com.konden.freedom.app.model.AlsraData
+import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ItemDangerBinding
 
 class AdapterDanger(var dangerList: ArrayList<AlsraData> , var call:ListCall) :

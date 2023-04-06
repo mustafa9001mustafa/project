@@ -12,7 +12,6 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_180sdp"
-
         android:background="@drawable/just_back_activity"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +20,7 @@
         android:id="@+id/text_not_necessary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="الملف الشخصي"
+        android:text="@string/profile"
         android:paddingVertical="@dimen/_15sdp"
         android:textColor="@color/colorSplashBackground"
         android:layout_margin="@dimen/_18sdp"
@@ -36,12 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:fontFamily="@font/md"
-        android:text="تسجيل الدخول"
+        android:text="@string/login"
         android:backgroundTint="@color/colorSplashBackground"
         android:padding="@dimen/_5sdp"
         android:background="@drawable/onboarding_indicator_activity"
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_not_necessary" />
 
@@ -54,7 +54,6 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="@dimen/_15sdp"
         app:cardUseCompatPadding="true"
-        android:outlineSpotShadowColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_not_necessary">
@@ -71,7 +70,7 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
-                android:text="الإسم : "
+                android:text="@string/name"
                 android:textColor="@color/just_black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +82,7 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
-                android:text="تاريخ الأسر : "
+                android:text="@string/data_aser"
                 android:textColor="@color/just_black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_free" />
@@ -96,7 +95,7 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
-                android:text="تاريخ الإفراج المتوقع : "
+                android:text="@string/data_freedom"
                 android:textColor="@color/just_black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/data_aser" />
@@ -108,7 +107,7 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_15sdp"
                 android:fontFamily="@font/md"
-                android:text="رقم الهوية : "
+                android:text="@string/number_kay"
                 android:textColor="@color/just_black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:fontFamily="@font/md"
-        android:text="تسجيل الخروج"
+        android:text="@string/logout"
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

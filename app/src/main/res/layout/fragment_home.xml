@@ -7,6 +7,7 @@
     tools:context="app.fragment.bsec.HomeFragment">
 
     <TextView
+        android:id="@+id/not_necessary"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/just_back_activity"
@@ -17,23 +18,22 @@
         android:id="@+id/text_not_necessary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="إحصائيات الأسرى"
-        android:paddingVertical="@dimen/_15sdp"
-        android:textColor="@color/colorSplashBackground"
-        android:layout_margin="@dimen/_18sdp"
-        android:gravity="center"
-        android:textSize="@dimen/_14ssp"
+        android:layout_margin="@dimen/_10sdp"
         android:fontFamily="@font/md"
+        android:gravity="center"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/prisoner_statistics"
+        android:textColor="@color/colorSplashBackground"
+        android:textSize="@dimen/_14ssp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_14ssp"
+        android:layout_margin="@dimen/_14sdp"
         android:backgroundTint="@color/cool_black"
-        tools:listitem="@layout/item_info"
+        app:layout_constraintBottom_toBottomOf="@+id/not_necessary"
         app:layout_constraintTop_toBottomOf="@+id/text_not_necessary"
         app:reverseLayout="false" />
 
@@ -50,4 +50,142 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loding" />
 
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_hide"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/hide" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/just_back_activity2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/live"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:background="@drawable/onboarding_indicator_activity"
+            android:backgroundTint="@color/btn_color"
+            android:fontFamily="@font/md"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@string/new_live"
+            android:textColor="@color/colorSplashBackground"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toStartOf="@+id/danger"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/danger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:background="@drawable/onboarding_indicator_activity"
+            android:backgroundTint="@color/btn_color"
+            android:fontFamily="@font/md"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@string/al_enthakat"
+            android:textColor="@color/colorSplashBackground"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/live"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:background="@drawable/onboarding_indicator_activity"
+            android:backgroundTint="@color/btn_color"
+            android:fontFamily="@font/md"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@string/setting"
+            android:textColor="@color/colorSplashBackground"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profile"
+            app:layout_constraintTop_toBottomOf="@+id/danger" />
+
+
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:background="@drawable/onboarding_indicator_activity"
+            android:backgroundTint="@color/btn_color"
+            android:fontFamily="@font/md"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@string/profile"
+            android:textColor="@color/colorSplashBackground"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toStartOf="@+id/setting"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            app:layout_constraintTop_toBottomOf="@+id/live" />
+
+
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:background="@drawable/onboarding_indicator_activity"
+            android:backgroundTint="@color/btn_color"
+            android:fontFamily="@font/md"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@string/about_app"
+            android:textColor="@color/colorSplashBackground"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/web_site"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            app:layout_constraintTop_toBottomOf="@+id/setting" />
+
+
+        <TextView
+            android:id="@+id/web_site"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:background="@drawable/onboarding_indicator_activity"
+            android:backgroundTint="@color/btn_color"
+            android:fontFamily="@font/md"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_5sdp"
+
+            android:text="@string/web_site_asre"
+            android:textColor="@color/colorSplashBackground"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/about"
+            android:layout_marginHorizontal="@dimen/_22sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

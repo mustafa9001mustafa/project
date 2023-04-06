@@ -27,7 +27,7 @@
         android:id="@+id/text_not_necessary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="الإنتهاكات"
+        android:text="@string/al_enthakat"
         android:textColor="@color/black"
         android:layout_marginVertical="@dimen/_5sdp"
         android:gravity="center"

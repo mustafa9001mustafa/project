@@ -12,9 +12,10 @@ import com.konden.freedom.app.fragment.bsec.DangersFragment
 import com.konden.freedom.app.fragment.bsec.HomeFragment
 import com.konden.freedom.app.fragment.bsec.LiveFragment
 import com.konden.freedom.app.fragment.bsec.ProfileFragment
+import com.konden.freedom.app.interfaces.ListCallChoose
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), ListCallChoose {
 
     lateinit var binding: ActivityHomeBinding
 
@@ -42,12 +43,9 @@ class HomeActivity : AppCompatActivity() {
 
         binding.bottomNav.setOnShowListener {
             if (it.id == 1) {
-
                 val fragment: HomeFragment = HomeFragment.newInstance()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_fragment, fragment, null).commit()
-
-
 
             } else if (it.id == 2) {
 
@@ -63,8 +61,7 @@ class HomeActivity : AppCompatActivity() {
                     .replace(R.id.nav_fragment, fragment, null).commit()
 
 
-
-            }else if (it.id == 4){
+            } else if (it.id == 4) {
                 val fragment: ProfileFragment = ProfileFragment.newInstance()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_fragment, fragment, null).commit()
@@ -77,7 +74,7 @@ class HomeActivity : AppCompatActivity() {
         //set the initial fragment to show
         Handler(Looper.getMainLooper()).postDelayed({
             binding.bottomNav.show(1, true)
-        }, 50)
+        }, 70)
 
         //set count to dashboard item
 //        binding.bottomNav.setCount(1, "*")
@@ -85,6 +82,16 @@ class HomeActivity : AppCompatActivity() {
         binding.bottomNav.setBackgroundColor(Color.red(Color.BLUE))
         binding.bottomNav.countBackgroundColor = (Color.red(Color.BLUE))
 //         binding.bottomNav.setCountBackgroundColor(Color.blue(Color.RED));
+
+    }
+
+    override fun call(call: Int) {
+        if (call == 2)
+            binding.bottomNav.show(2, true)
+        else if (call == 3)
+            binding.bottomNav.show(3, true)
+        else if (call == 4)
+            binding.bottomNav.show(4, true)
 
     }
 }

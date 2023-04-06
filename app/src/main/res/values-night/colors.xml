@@ -14,7 +14,10 @@
     <color name="cool_black2">#FFFFFF</color>
     <color name="cool_black3">#2D3751</color>
         <color name="colorSplashBackground">#FFFFFFFF</color>
+    <color name="colorCard">#2D3751</color>
+    <color name="colorCard_size">#3A4665</color>
     <color name="white_medim">#EAEAEA</color>
+    <color name="white_medims">#EAEAEA</color>
     <color name="btn_color">#F57C00</color>
     <color name="color_all">#6B9EE8</color>
     <color name="color_gest">#40AFEF</color>

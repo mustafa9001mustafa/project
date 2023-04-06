@@ -15,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 import com.konden.freedom.app.adapter.AdapterDanger
 import com.konden.freedom.app.interfaces.ListCall
 import com.konden.freedom.app.model.AlsraData
+import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.FragmentDangersBinding
 
 class DangersFragment : Fragment(), ListCall {
@@ -39,6 +40,8 @@ class DangersFragment : Fragment(), ListCall {
         DangerDataArrayList = arrayListOf()
 
         getdata()
+
+        SizeALlText()
         return binding.root
     }
 
@@ -76,5 +79,22 @@ class DangersFragment : Fragment(), ListCall {
 
     override fun call(link : String) {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+    }
+
+
+    private fun SizeALlText() {
+        if (ShardPreferans.getInstance().GetSize)
+            size_larg()
+        else
+            size_mid()
+    }
+    private fun size_mid() {
+        binding.textNotNecessary.textSize = 16f
+
+    }
+
+    private fun size_larg() {
+        binding.textNotNecessary.textSize = 20f
+
     }
 }

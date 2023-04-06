@@ -77,18 +77,18 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
 
     private void Set_OnBoarding() {
 
-        itemList.add(new OnBoardingItem("برنامج توفر حياة كريمة للأسرى", "وذلك لضمان حياة كريمة لهم ورعاية أبنائهم وأسرهم\n" +
-                " وذلك من خلال عدة صرف مخصصات رواتب شهرية \n" +
-                "وتسهيلات و إعفاءات خاصة لعائلات الأسرى"));
+        itemList.add(new OnBoardingItem(getString(R.string.prog_1), getString(R.string.text_prog_1) +
+                getString(R.string.text_prog_1_1) +
+                getString(R.string.text_prog_1_2)));
 
 
-        itemList.add(new OnBoardingItem("برنامج تمكين الأسرى المحررين", "وذلك من خلال الإندماج في المجتمع وتأمين وظائف للأسرى\n" +
-                " ومشروع الرعاية الصحية وإسكان الأسرى المحررين "));
+        itemList.add(new OnBoardingItem(getString(R.string.prog_2), getString(R.string.text_prog_2) +
+                getString(R.string.text_prog_2_1)));
 
 
-        itemList.add(new OnBoardingItem("برنامج الدعم النفسي والإجتماعي ", "وهذا من خلال مشروع تواصل وزيارة عائلات الأسرى في بيوتهم \n" +
-                "ومشروع مؤازرة عبر مشاركة الوزارة لحظة تجمعهم \n" +
-                "أمام مقر الصليب"));
+        itemList.add(new OnBoardingItem(getString(R.string.prog_3), getString(R.string.text_prog_3) +
+                getString(R.string.text_prog_3_1) +
+                getString(R.string.text_prog_3_2)));
 
 
         adapter = new OnBoardingAdapter(itemList);
@@ -105,11 +105,6 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
                 binding.viewpagerFragmentOnBoarding.setCurrentItem(binding.viewpagerFragmentOnBoarding.getCurrentItem() + 1);
             else
                 startActivity(new Intent(ViewPagerScrollActivity.this, LoginActivity.class));
-            ///////////////////////////////////////////
-            ///////////////////////////////////////////
-            ///////////////////////////////////////////
-            ///////////////////////////////////////////
-            ///////////////////////////////////////////
         });
     }
 
@@ -151,9 +146,9 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
         }
 
         if (index == adapter.getItemCount() - 1)
-            binding.btnOnBoardingAction.setText("دخول");
+            binding.btnOnBoardingAction.setText(R.string.go);
         else
-            binding.btnOnBoardingAction.setText("التالي");
+            binding.btnOnBoardingAction.setText(R.string.next);
 
     }
 }

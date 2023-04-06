@@ -39,7 +39,7 @@
         android:id="@+id/text_not_necessary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="الأخبار"
+        android:text="@string/new_live"
         android:textColor="@color/black"
         android:layout_marginVertical="@dimen/_5sdp"
         android:gravity="center"

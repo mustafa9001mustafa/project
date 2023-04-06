@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import com.konden.freedom.R
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivitySplachScreenBinding
 import com.konden.storonline.animations.Animations
@@ -22,6 +24,8 @@ class SplachScreen : AppCompatActivity() {
 
     }
 
+
+
     override fun onStart() {
         super.onStart()
 
@@ -37,15 +41,18 @@ class SplachScreen : AppCompatActivity() {
                     startActivity(Intent(this@SplachScreen, LoginActivity::class.java))
 
                 }
-
             }
 
         }, 3200)
+
+
+
 
 //        val database = Firebase.
 //        val myRef = database.getReference("message")
 //        myRef.setValue("Hello, World!")
     }
+
 
     override fun onStop() {
         super.onStop()
@@ -58,4 +65,12 @@ class SplachScreen : AppCompatActivity() {
 //        }, 2000)
 
     }
+
+
+    override fun recreate() {
+        finish()
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
+        startActivity(intent)
+    }
+
 }

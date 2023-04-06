@@ -15,8 +15,12 @@
     <color name="cool_black_live">#FF5900</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorSplashBackground">#FFFFFFFF</color>
+    <color name="colorCard">#FFFFFFFF</color>
+    <color name="colorCard_size">#DFDFDF</color>
     <color name="white_medvim">#EAEAEA</color>
+    <color name="white_medim">#EAEAEA</color>
     <color name="btn_color">#F57C00</color>
+    <color name="white_medims">#EAEAEA</color>
     <color name="color_all">#6B9EE8</color>
     <color name="color_gest">#18384A</color>
     <color name="color_login">#413D44</color>
