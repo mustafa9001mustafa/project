@@ -83,7 +83,7 @@ class DangersFragment : Fragment(), ListCall {
 
 
     private fun SizeALlText() {
-        if (ShardPreferans.getInstance().GetSize)
+        if (!ShardPreferans.getInstance().GetSize)
             size_larg()
         else
             size_mid()

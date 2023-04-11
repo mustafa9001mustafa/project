@@ -6,7 +6,10 @@ import android.text.Editable
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.parser.IntegerParser
 import com.google.firebase.database.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivityLoginBinding
 
@@ -14,6 +17,8 @@ import com.konden.freedom.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
+    var db = Firebase.firestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -28,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
     private fun ALlFUN() {
         CHECK_NUMBER_AND_LOGIN()
         LOGIN_GUEST()
+        SizeALlText()
     }
 
     private fun LOGIN_GUEST() {
@@ -66,25 +72,22 @@ class LoginActivity : AppCompatActivity() {
         binding.textNotNecessary.bringToFront()
 
         val mDatabaseRef = FirebaseDatabase.getInstance().getReference("Worksheet")
-
         val query = mDatabaseRef.orderByChild("رقم الهوية").equalTo(number.toString())
-
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
 
                 if (dataSnapshot.exists()) {
                     binding.login.visibility = View.VISIBLE
                     binding.textNotNecessary.visibility = View.GONE
                     binding.backNotNecessary.visibility = View.GONE
                     binding.lottieIconLoading.visibility = View.GONE
+//                    GetData()
 
                     for (data in dataSnapshot.children) {
                         val name = data.child("الاسم").value
                         val data_aser = data.child("تاريخ الأسر").value
                         val data_freedom = data.child("تاريخ الافراج المتوقع").value
                         val number_id = data.child("رقم الهوية").value
-
 
                         ShardPreferans.getInstance().saveName(name.toString())
                         ShardPreferans.getInstance().saveDataAser(data_aser.toString())
@@ -94,12 +97,12 @@ class LoginActivity : AppCompatActivity() {
 
                         if (ShardPreferans.getInstance().statesLogin == true) {
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-                            Toast.makeText(
-                                this@LoginActivity,
-                                "تم تسجيل الدخول",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
+//                            Toast.makeText(
+//                                this@LoginActivity,
+//                                "تم تسجيل الدخول",
+//                                Toast.LENGTH_SHORT
+//                            )
+//                                .show()
                         } else {
 
                             Toast.makeText(
@@ -113,8 +116,6 @@ class LoginActivity : AppCompatActivity() {
                             binding.backNotNecessary.visibility = View.GONE
                             binding.lottieIconLoading.visibility = View.GONE
                         }
-
-
                     }
 
                 } else {
@@ -125,8 +126,6 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this@LoginActivity, "رقم الهوية غير موجود", Toast.LENGTH_SHORT)
                         .show()
                 }
-
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -142,22 +141,15 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
+
+
+
 //        database = FirebaseDatabase.getInstance().getReference("Worksheet")
 
 //        database
 ////            .child()
 //            .child(number.toString()).get().addOnSuccessListener {
-//
-//
-//
-//
-//
 //                if (it.exists()) {
-//
-//
-//
-//
-//
 //                    val number_id = it.child("رقم الهوية").value
 //                    Toast.makeText(this@LoginActivity, "ok" + number_id, Toast.LENGTH_SHORT).show()
 //                    binding.login.text = number_id.toString()
@@ -177,8 +169,31 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+//    private fun GetData() {
+//        db.collection("Admin").get().addOnSuccessListener {
+//            if (!it.isEmpty) {
+//                for (data in it.documents) {
+////                    val Guest:Int  = data.get("Guest") as Int
+//
+////                    var Login = data.get("Login").toString()
+////                    var log:Int = Login as Int
+////                    log++
+//
+////                    var x :Int = IntegerParser Login
+//                    Toast.makeText(this@LoginActivity, ""+Login, Toast.LENGTH_SHORT).show()
+//                    val data1 = mapOf<String, String>("Login" to Login)
+//                    val id: String = "W0wd10pOXrM94MCUpnFQ"
+//                    db.collection("Admin").document(id).update(data1)
+//
+////                    val Logout = data.get("Logout").toString()
+//
+//                }
+//            }
+//        }
+//    }
+
     private fun SizeALlText() {
-        if (ShardPreferans.getInstance().GetSize)
+        if (!ShardPreferans.getInstance().GetSize)
             size_larg()
         else
             size_mid()
@@ -201,7 +216,6 @@ class LoginActivity : AppCompatActivity() {
     }
     override fun onStop() {
         super.onStop()
-
         finish()
     }
 }

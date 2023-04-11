@@ -1,24 +1,33 @@
 package com.konden.freedom.app.ui
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.konden.freedom.R
+import com.konden.freedom.app.fragment.bsec.ProfileFragment
+import com.konden.freedom.app.fragment.dialog.AboutDialog
+import com.konden.freedom.app.fragment.dialog.EnterPasswordFragment
 import com.konden.freedom.app.fragment.dialog.LanguagesFragment
+import com.konden.freedom.app.interfaces.ListFinish
 import com.konden.freedom.app.interfaces.ListenerCallLanguage
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivitySettingBinding
 import com.konden.readandcuttext.appcontroller.AppController
 import com.yariksoffice.lingver.Lingver
 
-class SettingActivity : AppCompatActivity(), ListenerCallLanguage {
+class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
 
 
     private lateinit var binding: ActivitySettingBinding
 
     private lateinit var dialog: LanguagesFragment
+    private lateinit var dialog_password: EnterPasswordFragment
+    val about_dialog: AboutDialog = AboutDialog()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +35,7 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage {
         setContentView(binding.root)
 
 
-        if (!ShardPreferans.getInstance().GetSize) {
+        if (ShardPreferans.getInstance().GetSize) {
             binding.btnSize.setText(resources.getText(R.string.mid))
             size_mid()
         } else {
@@ -37,15 +46,43 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage {
 
     override fun onStart() {
         super.onStart()
-        all_Method()
+        All_Fun()
     }
 
-
-    private fun all_Method() {
+    private fun All_Fun() {
         Languages()
         Size_Text()
         About_app()
         Back_Btn()
+        Btn_reset()
+        Admin()
+    }
+
+    private fun Admin() {
+        binding.cardAdmin.setOnClickListener(View.OnClickListener {
+            dialog_password = EnterPasswordFragment.newInstance()//show dialog description according to user type
+            this@SettingActivity.supportFragmentManager.beginTransaction()
+                .let { it1 ->
+                    dialog_password.show(it1, LanguagesFragment::class.java.name)
+                }
+        })
+    }
+
+    private fun Btn_reset() {
+        binding.resetBtn.setOnClickListener(View.OnClickListener {
+            SweetAlertDialog(this@SettingActivity, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("إنتبه")
+                .setContentText("سيقوم التطبيق بإعادة التشغيل مع حذف جميع البينات والإعدادات المحفوظة داخل التطبيق")
+                .setConfirmText(resources.getString(R.string.cansel))
+                .setCancelButton("إعادة ضبط") {
+                    ShardPreferans.getInstance().clear()
+                    startActivity(Intent(this@SettingActivity, SplachScreen::class.java))
+                    finish()
+                }
+//                .setCancelText(resources.getString(R.string.cansel))
+                .show()
+
+        })
     }
 
     private fun Back_Btn() {
@@ -54,37 +91,14 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage {
         })
     }
 
-    private fun Size_Text() {
-        binding.btnSize.setOnClickListener(View.OnClickListener {
-            if (binding.btnSize.text == resources.getText(R.string.mid)) {
-                binding.btnSize.text = resources.getText(R.string.larg)
-                ShardPreferans.getInstance().saveSize(true)
-                size_larg()
-
-            } else {
-                binding.btnSize.text = resources.getText(R.string.mid)
-                ShardPreferans.getInstance().saveSize(false)
-                size_mid()
-
-            }
-
-        })
-
-    }
 
     private fun About_app() {
         binding.cardAbout.setOnClickListener(View.OnClickListener {
-            SweetAlertDialog(
-                this@SettingActivity,
-                SweetAlertDialog.WARNING_TYPE
-            ).setTitleText(resources.getString(R.string.about_my_app))
-                .setContentText(resources.getString(R.string.description_dialog))
-                .setConfirmText(resources.getString(R.string.ok))
-                .show()
+            about_dialog.dialog(this@SettingActivity, this)
+
 
         })
     }
-
 
     private fun Languages() {
         binding.cardLan.setOnClickListener {
@@ -100,11 +114,31 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage {
         }
     }
 
+    private fun Size_Text() {
+        binding.btnSize.setOnClickListener(View.OnClickListener {
+            if (binding.btnSize.text == resources.getText(R.string.mid)) {
+                binding.btnSize.text = resources.getText(R.string.larg)
+                ShardPreferans.getInstance().saveSize(false)
+                size_larg()
+            } else {
+                binding.btnSize.text = resources.getText(R.string.mid)
+                ShardPreferans.getInstance().saveSize(true)
+                size_mid()
+
+            }
+
+        })
+
+    }
+
     private fun size_mid() {
         binding.about.textSize = 16f
         binding.btnSize.textSize = 16f
         binding.lan.textSize = 16f
         binding.sizeText.textSize = 16f
+        binding.reset.textSize = 16f
+        binding.resetBtn.textSize = 16f
+        binding.tvAdmin.textSize = 16f
     }
 
     private fun size_larg() {
@@ -112,6 +146,9 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage {
         binding.btnSize.textSize = 20f
         binding.lan.textSize = 20f
         binding.sizeText.textSize = 20f
+        binding.reset.textSize = 20f
+        binding.resetBtn.textSize = 20f
+        binding.tvAdmin.textSize = 20f
     }
 
 
@@ -132,8 +169,15 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage {
         startActivity(Intent(Intent(this@SettingActivity, HomeActivity::class.java)))
     }
 
+
     override fun onStop() {
         super.onStop()
         finish()
+    }
+
+    override fun call() {
+        var intent: Intent =
+            Intent(Intent.ACTION_VIEW, Uri.parse("https://www.mod.gov.ps/ar"))
+        startActivity(intent, null)
     }
 }

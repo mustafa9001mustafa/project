@@ -20,8 +20,10 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.konden.freedom.R
 import com.konden.freedom.app.adapter.InfoAdapter
+import com.konden.freedom.app.fragment.dialog.AboutDialog
 import com.konden.freedom.app.interfaces.ListCall
 import com.konden.freedom.app.interfaces.ListCallChoose
+import com.konden.freedom.app.interfaces.ListFinish
 import com.konden.freedom.app.model.InfoAllFreedom
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.app.ui.SettingActivity
@@ -30,12 +32,13 @@ import com.konden.readandcuttext.appcontroller.AppController
 import com.konden.storonline.animations.Animations
 
 
-class HomeFragment : Fragment(), ListCall {
+class HomeFragment : Fragment(), ListCall ,ListFinish{
     private lateinit var FreedomArreyList: ArrayList<InfoAllFreedom>
     private lateinit var binding: FragmentHomeBinding
     private var db = Firebase.firestore
     private lateinit var call_choose: ListCallChoose
     private val anim: Animations = Animations()
+    val about_dialog: AboutDialog = AboutDialog()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,9 +49,7 @@ class HomeFragment : Fragment(), ListCall {
     }
 
     override fun onAttach(context: Context) {
-        if (context != null) {
             super.onAttach(context)
-        }
         if (context is ListCallChoose) {
             call_choose = context
         } else {
@@ -61,6 +62,7 @@ class HomeFragment : Fragment(), ListCall {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         db = FirebaseFirestore.getInstance()
+        SizeALlText()
         AllMethod()
         return binding.root
     }
@@ -70,12 +72,11 @@ class HomeFragment : Fragment(), ListCall {
         inshlase()
         OnClickChoose()
         Siwp()
-        SizeALlText()
     }
 
     @SuppressLint("ClickableViewAccessibility")
     private fun Siwp() {
-        binding.lottieHide.setOnTouchListener(OnTouchListener { view, motionEvent ->
+        binding.lottieHide.setOnTouchListener(OnTouchListener { _, motionEvent ->
             val event = motionEvent.actionMasked
             when (event) {
                 MotionEvent.ACTION_UP -> {
@@ -113,14 +114,7 @@ class HomeFragment : Fragment(), ListCall {
 
 
         binding.about.setOnClickListener(View.OnClickListener {
-            SweetAlertDialog(
-                activity,
-                SweetAlertDialog.WARNING_TYPE
-            ).setTitleText(resources.getString(R.string.about_my_app))
-                .setContentText(resources.getString(R.string.description_dialog))
-                .setConfirmText(resources.getString(R.string.ok))
-                .show()
-
+            about_dialog.dialog(requireContext(),this)
         })
 
 
@@ -170,11 +164,12 @@ class HomeFragment : Fragment(), ListCall {
     }
 
     private fun SizeALlText() {
-        if (ShardPreferans.getInstance().GetSize)
+        if (!ShardPreferans.getInstance().GetSize)
             size_larg()
         else
             size_mid()
     }
+
     private fun size_mid() {
         binding.about.textSize = 16f
         binding.textNotNecessary.textSize = 16f
@@ -197,4 +192,9 @@ class HomeFragment : Fragment(), ListCall {
         binding.notNecessary.textSize = 18f
     }
 
+    override fun call() {
+        var intent: Intent =
+            Intent(Intent.ACTION_VIEW, Uri.parse("https://www.mod.gov.ps/ar"))
+        startActivity( intent, null)
+    }
 }

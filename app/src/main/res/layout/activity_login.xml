@@ -6,115 +6,121 @@
     android:layout_height="match_parent"
     tools:context=".app.ui.LoginActivity">
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ds"
-        android:text="@string/login"
-        android:textColor="@color/black"
-        android:layout_marginBottom="@dimen/_30sdp"
-        android:textSize="@dimen/_20ssp"
-        app:layout_constraintBottom_toTopOf="@+id/filled_text_number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/filled_text_number"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginVertical="@dimen/_20sdp"
-        android:hint="@string/enter_number"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
+        android:layout_height="match_parent">
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_email"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:fontFamily="@font/ds"
-            android:inputType="numberDecimal"
-            android:layout_height="wrap_content" />
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-
-    <info.hoang8f.widget.FButton
-        android:id="@+id/login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginVertical="@dimen/_20sdp"
-        android:backgroundTint="@color/color_login"
-        android:text="@string/text_login"
-        android:fontFamily="@font/ds"
-        android:textSize="@dimen/_15ssp"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/filled_text_number" />
-
-    <TextView
-        android:id="@+id/register_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:fontFamily="@font/as"
-        android:gravity="center"
-
-        android:paddingVertical="@dimen/_8sdp"
-        android:text="@string/gest"
-        android:textColor="@color/color_gest"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login" />
-
-    <ImageView
-        android:id="@+id/back_not_necessary"
-        android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="match_parent"
-        android:src="@color/color_login_now"
-        />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie_icon_loading"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_80sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:lottie_autoPlay="true"
-        android:visibility="gone"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loading1" />
-
-    <TextView
-        android:id="@+id/text_not_necessary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lottie_icon_loading"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:textSize="@dimen/_16ssp"
-        android:fontFamily="@font/ds"
-        android:visibility="gone"
-        android:textColor="@color/colorSplashBackground"
-        android:text="@string/wait_a_faw_time"
-        />
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:fontFamily="@font/ds"
+                android:text="@string/login"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintBottom_toTopOf="@+id/filled_text_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/filled_text_number"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_marginVertical="@dimen/_20sdp"
+                android:hint="@string/enter_number"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ds"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_marginVertical="@dimen/_20sdp"
+                android:backgroundTint="@color/color_login"
+                android:fontFamily="@font/ds"
+                android:text="@string/text_login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/filled_text_number" />
+
+            <TextView
+                android:id="@+id/register_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/as"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/gest"
+                android:textColor="@color/color_gest"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login" />
+
+            <ImageView
+                android:id="@+id/back_not_necessary"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@color/color_login_now"
+                android:visibility="gone" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_icon_loading"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading1" />
+
+            <TextView
+                android:id="@+id/text_not_necessary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ds"
+                android:text="@string/wait_a_faw_time"
+                android:textColor="@color/colorSplashBackground"
+                android:textSize="@dimen/_16ssp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lottie_icon_loading" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

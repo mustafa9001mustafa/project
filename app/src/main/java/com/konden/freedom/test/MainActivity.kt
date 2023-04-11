@@ -28,9 +28,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Hide bar when you want. For example hide bar in landscape only
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            hideStatusBar_AllVersions();
-        }
+//        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//            hideStatusBar_AllVersions();
+//        }
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -61,26 +61,26 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    fun hideStatusBar_Deprecated() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {  // < 16
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
-        } else {  // 16...29
-            val decorView: View = window.decorView
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN)
-            val ab: ActionBar? = supportActionBar
-            if (ab != null) {
-                ab.hide()
-            }
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
-        }
-    }
+//
+//    fun hideStatusBar_Deprecated() {
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {  // < 16
+//            window.setFlags(
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN
+//            )
+//        } else {  // 16...29
+//            val decorView: View = window.decorView
+//            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN)
+//            val ab: ActionBar? = supportActionBar
+//            if (ab != null) {
+//                ab.hide()
+//            }
+//            window.setFlags(
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN
+//            )
+//        }
+//    }
 
     @TargetApi(Build.VERSION_CODES.R)
     fun  // >= 30
@@ -89,12 +89,12 @@ class MainActivity : AppCompatActivity() {
         decorView.getWindowInsetsController()?.hide(WindowInsets.Type.statusBars())
     }
 
-    fun hideStatusBar_AllVersions() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-            hideStatusBar_Deprecated()
-        } else {
-            hideStatusBar_Actual()
-        }
-    }
+//    fun hideStatusBar_AllVersions() {
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+//            hideStatusBar_Deprecated()
+//        } else {
+//            hideStatusBar_Actual()
+//        }
+//    }
 
 }

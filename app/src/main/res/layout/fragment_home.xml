@@ -12,15 +12,18 @@
         android:layout_height="0dp"
         android:background="@drawable/just_back_activity"
         app:layout_constraintBottom_toBottomOf="@+id/rv"
+        android:paddingBottom="@dimen/_5sdp"
+
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_not_necessary"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:fontFamily="@font/md"
-        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:paddingVertical="@dimen/_10sdp"
         android:text="@string/prisoner_statistics"
         android:textColor="@color/colorSplashBackground"
@@ -31,7 +34,8 @@
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_14sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
         android:backgroundTint="@color/cool_black"
         app:layout_constraintBottom_toBottomOf="@+id/not_necessary"
         app:layout_constraintTop_toBottomOf="@+id/text_not_necessary"

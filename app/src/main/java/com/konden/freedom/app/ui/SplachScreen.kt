@@ -22,8 +22,12 @@ class SplachScreen : AppCompatActivity() {
         binding = ActivitySplachScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if (ShardPreferans.getInstance().IsFirest()){
+            ShardPreferans.getInstance().saveLogin(false)
+            ShardPreferans.getInstance().GustLogin(false)
+            ShardPreferans.getInstance().saveSize(true)
+        }
     }
-
 
 
     override fun onStart() {
@@ -32,10 +36,10 @@ class SplachScreen : AppCompatActivity() {
         val myCar = Animations()
         binding.tvSplach.animation = myCar.a5_FadeIn(this@SplachScreen)
         Handler(Looper.getMainLooper()).postDelayed({
-            if (ShardPreferans.getInstance().isFirstTimeOther() == true)
+            if (ShardPreferans.getInstance().isFirstTimeOther())
                 startActivity(Intent(this@SplachScreen, ViewPagerScrollActivity::class.java))
             else{
-                if (ShardPreferans.getInstance().statesLogin == true || ShardPreferans.getInstance().GustLogin == true){
+                if (ShardPreferans.getInstance().statesLogin || ShardPreferans.getInstance().GustLogin){
                     startActivity(Intent(this@SplachScreen, HomeActivity::class.java))
                 } else {
                     startActivity(Intent(this@SplachScreen, LoginActivity::class.java))

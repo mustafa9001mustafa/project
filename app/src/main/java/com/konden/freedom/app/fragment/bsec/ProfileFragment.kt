@@ -1,18 +1,14 @@
 package com.konden.freedom.app.fragment.bsec
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.app.ui.LoginActivity
 import com.konden.freedom.databinding.FragmentProfileBinding
-import org.checkerframework.framework.qual.InvisibleQualifier
 
 
 class ProfileFragment : Fragment() {
@@ -38,6 +34,7 @@ class ProfileFragment : Fragment() {
             }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,11 +56,10 @@ class ProfileFragment : Fragment() {
 
     private fun LOGIN_TO() {
         binding.login.setOnClickListener(View.OnClickListener {
-
             startActivity(Intent(activity, LoginActivity::class.java))
-            ShardPreferans.getInstance().clear()
             ShardPreferans.getInstance().saveLogin(false)
             ShardPreferans.getInstance().GustLogin(false)
+            ShardPreferans.getInstance().remove()
             activity?.finish()
 
         })
@@ -101,7 +97,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun SizeALlText() {
-        if (ShardPreferans.getInstance().GetSize)
+        if (!ShardPreferans.getInstance().GetSize)
             size_larg()
         else
             size_mid()

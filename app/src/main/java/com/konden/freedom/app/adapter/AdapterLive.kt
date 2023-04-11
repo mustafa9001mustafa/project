@@ -11,7 +11,7 @@ import com.konden.freedom.databinding.ItemLiveBinding
 class AdapterLive(var LiveList: ArrayList<AlsraData>, var call:ListCall) :
     RecyclerView.Adapter<AdapterLive.ViewHolderLive>() {
 
-    inner class ViewHolderLive(var v: ItemLiveBinding) : RecyclerView.ViewHolder(v.root) {}
+    inner class ViewHolderLive(var v: ItemLiveBinding) : RecyclerView.ViewHolder(v.root)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderLive {
         val binding = ItemLiveBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolderLive(binding)

@@ -16,8 +16,8 @@ class ShardPreferans private constructor() {
         private val DataFreedom = "dataFreedom"
         private val Number = "Number"
         private val Size = "Size"
-        private val Dark = "dark"
-
+        private val Before = "Before"
+        private val IsFirest = "IsFirest"
 
         fun getInstance(): ShardPreferans {
             if (!Companion::sharedPreferences.isInitialized) {
@@ -31,18 +31,7 @@ class ShardPreferans private constructor() {
         }
     }
 
-
-
-    var dark: Boolean = true
-        get() = sharedPreferences.getBoolean(Dark, field)
-
-    fun saveDark(dark: Boolean) {
-        sharedPreferences.edit()
-            .putBoolean(Dark, dark)
-            .apply()
-    }
-
-    var statesLogin: Boolean = true
+    var statesLogin: Boolean = false
         get() = sharedPreferences.getBoolean(Login, field)
 
     fun saveLogin(login: Boolean) {
@@ -109,19 +98,30 @@ class ShardPreferans private constructor() {
             .putString(Number, str)
             .apply()
     }
-
-
-    fun isFirstTimeOther(): Boolean {
-        val ranBefore = sharedPreferences.getBoolean("RanBefore", false)
+    fun IsFirest(): Boolean {
+        val ranBefore = sharedPreferences.getBoolean(IsFirest, false)
         if (!ranBefore) {
-            sharedPreferences.edit().putBoolean("RanBefore", true)
+            sharedPreferences.edit().putBoolean(IsFirest, true)
                 .apply()
         }
         return !ranBefore
     }
-    fun clear() {
-        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).remove(Gust).remove(Size).remove(Dark).apply()
 
+    fun isFirstTimeOther(): Boolean {
+        val ranBefore = sharedPreferences.getBoolean(Before, false)
+        if (!ranBefore) {
+            sharedPreferences.edit().putBoolean(Before, true)
+                .apply()
+        }
+        return !ranBefore
     }
 
+
+    fun clear() {
+        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).remove(Gust).remove(Size).apply()
+    }
+
+    fun remove() {
+        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).remove(Gust).apply()
+    }
 }

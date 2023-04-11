@@ -88,7 +88,7 @@
                 android:backgroundTint="@color/main_orange_color"
                 android:fontFamily="@font/we"
                 android:text="@string/save_lan"
-                android:textColor="@color/white"
+                android:textColor="@color/colorSplashBackground"
                 android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

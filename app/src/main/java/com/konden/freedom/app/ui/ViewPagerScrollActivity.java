@@ -25,8 +25,8 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
     ActivityViewPagerScrollBinding binding;
     List<OnBoardingItem> itemList = new ArrayList<>();
     private OnBoardingAdapter adapter;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+//    FirebaseDatabase firebaseDatabase;
+//    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,8 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
         binding = ActivityViewPagerScrollBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
+//        firebaseDatabase = FirebaseDatabase.getInstance();
+//        databaseReference = firebaseDatabase.getReference();
 //        getdata();
 //
 //        Info info = new Info();
@@ -150,5 +150,11 @@ public class ViewPagerScrollActivity extends AppCompatActivity {
         else
             binding.btnOnBoardingAction.setText(R.string.next);
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

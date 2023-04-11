@@ -23,5 +23,11 @@
     <style name="MyDialog" parent="Base.Theme.AppCompat.Light.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+    <style name="Theme.Freedom.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Freedom.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Freedom.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

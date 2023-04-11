@@ -56,6 +56,11 @@ class LanguagesFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLanguagesBinding.inflate(inflater, container, false)
+        AllFun()
+        return binding.root
+    }
+
+    private fun AllFun() {
 
         binding.lan1.setOnClickListener(View.OnClickListener {
             binding.lan1.setBackgroundResource(R.drawable.shaponclick)
@@ -84,7 +89,6 @@ class LanguagesFragment : DialogFragment() {
         binding.cloIcon.setOnClickListener(View.OnClickListener {
             listener.close()})
 
-        return binding.root
     }
 
     companion object {
@@ -104,4 +108,5 @@ class LanguagesFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         dialog?.window?.attributes?.width = FrameLayout.LayoutParams.MATCH_PARENT
         dialog?.window?.attributes?.height = FrameLayout.LayoutParams.WRAP_CONTENT
-    }}
+    }
+}

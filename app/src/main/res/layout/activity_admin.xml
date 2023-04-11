@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.ui.AdminActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/cool_black3"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/card_logout"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/md"
+                android:gravity="center"
+                android:text="تسجيل الدخول"
+                android:textColor="@color/colorSplashBackground"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/login_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/md"
+                android:text="1"
+                android:textColor="@color/btn_color"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_logout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/cool_black3"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="@dimen/_15sdp"
+
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_login"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/md"
+                android:gravity="center"
+                android:text="تسجيل الخروج"
+                android:textColor="@color/colorSplashBackground"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/logout_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/md"
+                android:text="1"
+                android:textColor="@color/btn_color"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_guest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/cool_black3"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_login">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/guest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/md"
+                android:gravity="center"
+                android:text="تسجيل كضيف"
+                android:textColor="@color/colorSplashBackground"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/guest_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/md"
+                android:text="1"
+                android:textColor="@color/btn_color"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guest" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
