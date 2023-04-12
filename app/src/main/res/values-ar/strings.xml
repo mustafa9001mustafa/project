@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">الحرية</string>
-    <string name="test">تجربة</string>
-    <string name="tester">تجربة</string>
     <string name="login">تسجيل الدخول</string>
     <string name="enter_number">أدخل رقم الهوية</string>
     <string name="text_login">الدخول</string>
@@ -21,9 +19,6 @@
     <string name="setting">الإعدادات</string>
     <string name="about_app">عن التطبيق</string>
     <string name="languages">اللغة</string>
-    <string name="o">o</string>
-    <string name="i">i</string>
-    <string name="dark_mode">الوضع الليلي</string>
     <string name="size">حجم النص</string>
     <string name="mid">متوسط</string>
     <string name="english">الإنجليزية</string>
@@ -55,6 +50,6 @@
     <string name="finish">خروج</string>
     <string name="text_finsh">هل تريد الخروج من التطبيق</string>
     <string name="enter_password">enter_password</string>
-    <string name="enter_password_to_go_admin">enter password to go admin</string>
+    <string name="enter_password_to_go_admin">ادخل كلمة المرور</string>
 
 </resources>

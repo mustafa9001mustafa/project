@@ -35,7 +35,10 @@ class AdminActivity : AppCompatActivity() {
             if (!it.isEmpty) {
                 for (data in it.documents) {
                     val Guest = data.get("Guest").toString()
-                    binding.guestNumber.text = Guest.toString()
+                    binding.guestNumberAll.text = Guest.toString()
+
+                    val GuestNow = data.get("GuestNow").toString()
+                    binding.guestNumberNow.text = GuestNow.toString()
 
                     val Login = data.get("Login").toString()
                     binding.loginNumber.text = Login.toString()

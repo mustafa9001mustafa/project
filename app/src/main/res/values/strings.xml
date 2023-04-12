@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">الحرية</string>
-    <string name="test">تجربة</string>
-    <string name="tester">تجربة</string>
     <string name="login">sign in</string>
     <string name="enter_number">enter number kay</string>
     <string name="text_login">login</string>
@@ -19,9 +17,6 @@
     <string name="web_site_asre">WebSite Captives</string>
     <string name="setting">Setting</string>
     <string name="about_app">About app</string>
-    <string name="o">o</string>
-    <string name="i">i</string>
-    <string name="dark_mode">The dark mode</string>
     <string name="size">Size Text</string>
     <string name="mid">Mid</string>
     <string name="english">English</string>
@@ -54,16 +49,7 @@
     <string name="finish">finish</string>
     <string name="text_finsh">Do you want to exit the application</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_password">enter_password</string>
     <string name="enter_password_to_go_admin">enter password to go admin</string>
-    <string name="title_activity_admin">AdminActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>

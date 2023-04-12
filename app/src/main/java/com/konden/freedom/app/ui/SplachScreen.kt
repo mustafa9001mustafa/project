@@ -7,6 +7,8 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.konden.freedom.R
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivitySplachScreenBinding
@@ -52,7 +54,7 @@ class SplachScreen : AppCompatActivity() {
 
 
 
-//        val database = Firebase.
+//        val database = Firebase.firestore
 //        val myRef = database.getReference("message")
 //        myRef.setValue("Hello, World!")
     }
