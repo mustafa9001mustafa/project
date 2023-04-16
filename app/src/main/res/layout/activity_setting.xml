@@ -25,7 +25,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/settings"
                 app:layout_constraintEnd_toStartOf="@id/settings"
                 app:layout_constraintStart_toStartOf="parent"
-
                 app:layout_constraintTop_toTopOf="parent" />
 
 

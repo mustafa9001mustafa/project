@@ -11,9 +11,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
+        android:layout_marginVertical="@dimen/_15sdp"
         app:cardBackgroundColor="@color/cool_black3"
         app:cardCornerRadius="10dp"
-        android:layout_marginVertical="@dimen/_15sdp"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,27 +39,27 @@
                 app:layout_constraintTop_toTopOf="@+id/name_free"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <com.airbnb.lottie.LottieAnimationView
+            <ImageView
                 android:id="@+id/lottie_share"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:src="@drawable/logo_asra"
                 app:layout_constraintBottom_toBottomOf="parent"
+                android:rotation="90"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/share" />
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/name_free"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_8sdp"
                 android:fontFamily="@font/md"
-                android:paddingHorizontal="@dimen/_5sdp"
+                android:paddingHorizontal="@dimen/_1sdp"
+                android:textSize="@dimen/_17ssp"
                 android:text="تمديد الإعتقال لشقيقين من مدينة جنين"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorSplashBackground"
-                android:textSize="@dimen/_18ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lottie_share"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -73,14 +73,11 @@
                 android:text="محكمة الاحتلال العسكرية تمدد اعتقال الشقيقين عمار ومراد الحمور من مدينة جنين المحتلة، ليومين بحجة استكمال التحقيق معهم فى مركز الجلمة وهما معتقلان منذ شهر"
                 android:textAlignment="viewStart"
                 android:textColor="@color/cool_black_mode"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_11ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lottie_share"
                 app:layout_constraintTop_toBottomOf="@+id/name_free" />
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,7 +41,7 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottie_share"
-                android:layout_width="@dimen/_50sdp"
+                android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_50sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,8 @@
                 android:text="تمديد الإعتقال لشقيقين من مدينة جنين"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorSplashBackground"
-                android:textSize="@dimen/_19ssp"
+                android:textSize="@dimen/_17ssp"
+                android:paddingHorizontal="@dimen/_2sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lottie_share"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -77,7 +78,7 @@
                 android:text="محكمة الاحتلال العسكرية تمدد اعتقال الشقيقين عمار ومراد الحمور من مدينة جنين المحتلة، ليومين بحجة استكمال التحقيق معهم فى مركز الجلمة وهما معتقلان منذ شهر"
                 android:textAlignment="viewStart"
                 android:textColor="@color/cool_black_mode"
-
+                android:paddingHorizontal="@dimen/_2sdp"
                 android:textSize="@dimen/_11ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

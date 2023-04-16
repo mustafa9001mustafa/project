@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.konden.freedom.app.adapter.AdapterDanger
@@ -46,7 +47,7 @@ class DangersFragment : Fragment(), ListCall {
     }
 
     private fun getdata() {
-        dbData.collection("DangerCard").orderBy("titel").get().addOnSuccessListener {
+        dbData.collection("DangerCard").orderBy("time", Query.Direction.ASCENDING).get().addOnSuccessListener {
             if (!it.isEmpty)
                 binding.lottieLoding.visibility = View.GONE
             binding.lottieLoding.cancelAnimation()
@@ -54,7 +55,6 @@ class DangersFragment : Fragment(), ListCall {
             for (data in it.documents) {
                 val danger_data: AlsraData? =
                     data.toObject<AlsraData>(AlsraData::class.java)
-
                 DangerDataArrayList.add(danger_data!!)
             }
             binding.rv.adapter = AdapterDanger(DangerDataArrayList, this)

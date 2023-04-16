@@ -58,9 +58,10 @@ class EnterPasswordFragment : DialogFragment() {
                 for (data in it.documents) {
                     val Guest = data.get("Password").toString()
 
-                    if (Guest.equals(password))
+                    if (Guest.equals(password)) {
                         startActivity(Intent(activity, AdminActivity::class.java))
-                    else {
+
+                    } else {
                         Toast.makeText(
                             activity,
                             "كلمة المرور خاطئة , يرجى المحاولة في ما بعد",

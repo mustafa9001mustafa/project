@@ -4,23 +4,22 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.konden.freedom.R
 import com.konden.freedom.app.adapter.AdapterLive
 import com.konden.freedom.app.interfaces.ListCall
 import com.konden.freedom.app.model.AlsraData
 import com.konden.freedom.app.shard.ShardPreferans
-import com.konden.freedom.databinding.FragmentHomeBinding
 import com.konden.freedom.databinding.FragmentLiveBinding
+import kotlin.collections.ArrayList
 
 
 class LiveFragment : Fragment()  , ListCall {
@@ -65,7 +64,8 @@ class LiveFragment : Fragment()  , ListCall {
     }
 
     private fun GetLiveData() {
-        db.collection("live").orderBy("titel").get().addOnSuccessListener {
+
+        db.collection("live").orderBy("time",Query.Direction.DESCENDING).get().addOnSuccessListener {
             if (!it.isEmpty)
                 binding.lottieLoding.visibility = View.GONE
             binding.lottieLoding.cancelAnimation()

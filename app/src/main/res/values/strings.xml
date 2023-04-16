@@ -41,15 +41,53 @@
     <string name="next">next</string>
     <string name="about_my_app">information in my app</string>
     <string name="description_dialog">That\'s what she said, which he believed, which he believed</string>
-    <string name="ok">ok</string>
+    <string name="ok">OK</string>
     <string name="reset_my_app">reset my app</string>
     <string name="reset">reset</string>
     <string name="cansel">Cansel</string>
     <string name="admin">Admin</string>
     <string name="finish">finish</string>
     <string name="text_finsh">Do you want to exit the application</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="enter_password">enter_password</string>
     <string name="enter_password_to_go_admin">enter password to go admin</string>
+    <string name="change">change</string>
+    <string name="add_title_new">add title new</string>
+    <string name="add_description_new">add description new</string>
+    <string name="add_link_new">add link new</string>
+
+
+    <string name="add_title_danger">add title danger</string>
+    <string name="add_description_danger">add description danger</string>
+    <string name="add_link_danger">add link danger</string>
+
+
+    <string name="add">add</string>
+    <string name="add2">add : </string>
+    <string name="text_change_password">Change password</string>
+    <string name="enter_password_last">enter password last</string>
+    <string name="enter_password_new">enter password new</string>
+    <string name="all_login_guest">all login guest</string>
+    <string name="login_guest_now">login guest now</string>
+    <string name="choose_to_change">choose to change : </string>
+    <string name="enter_number_here">enter number here</string>
+
+
+    <string-array name="Info">
+        <item>الأسرى</item>
+        <item>المرضى</item>
+        <item>الأسيرات</item>
+        <item>الأسرى الإداريون</item>
+        <item>الصحفين</item>
+        <item>النواب</item>
+        <item>الأطفال</item>
+        <item>قدماء الأسرى</item>
+        <item>المؤبدات</item>
+    </string-array>
+
+
+    <string-array name="news">
+        <item>خبر جديد</item>
+        <item>إنتهاك جديد</item>
+    </string-array>
 
 </resources>

@@ -167,11 +167,6 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
 
     override fun onBackPressed() {
         startActivity(Intent(Intent(this@SettingActivity, HomeActivity::class.java)))
-    }
-
-
-    override fun onStop() {
-        super.onStop()
         finish()
     }
 

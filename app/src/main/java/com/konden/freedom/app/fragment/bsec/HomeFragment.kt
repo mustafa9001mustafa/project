@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.google.android.flexbox.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -85,8 +86,11 @@ class HomeFragment : Fragment(), ListCall ,ListFinish{
                         binding.lottieHide.animation = anim.a1_Up(activity)
                         binding.constraintLayout.visibility = View.VISIBLE
                         binding.lottieHide.rotation = 180f
+                        binding.constraintNiy.visibility = View.GONE
                     } else {
                         binding.constraintLayout.visibility = View.GONE
+                        binding.constraintNiy.visibility = View.VISIBLE
+
                         binding.lottieHide.rotation = 0f
                         binding.constraintLayout.animation = anim.a2_Down(activity)
                     }
@@ -117,16 +121,24 @@ class HomeFragment : Fragment(), ListCall ,ListFinish{
             about_dialog.dialog(requireContext(),this)
         })
 
-
         binding.setting.setOnClickListener(View.OnClickListener {
             startActivity(Intent(activity, SettingActivity::class.java))
         })
     }
 
     private fun inshlase() {
-        binding.rv.layoutManager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
+
+        val layoutManager = FlexboxLayoutManager(context).apply {
+            justifyContent = JustifyContent.CENTER
+            alignItems = AlignItems.CENTER
+            flexDirection = FlexDirection.ROW
+            flexWrap = FlexWrap.WRAP
+        }
+
+        binding.rv.layoutManager = layoutManager
         binding.rv.setHasFixedSize(true)
         FreedomArreyList = arrayListOf()
+
         getdata()
     }
 

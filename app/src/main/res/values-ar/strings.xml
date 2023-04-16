@@ -51,5 +51,45 @@
     <string name="text_finsh">هل تريد الخروج من التطبيق</string>
     <string name="enter_password">enter_password</string>
     <string name="enter_password_to_go_admin">ادخل كلمة المرور</string>
+    <string name="change">تعديل</string>
+    <string name="add_title_new">أدخل عنوان الخبر هنا</string>
+    <string name="add_description_new">أدخل وصف الخبر هنا</string>
+    <string name="add_link_new">أدخل رابط الخبر هنا</string>
+
+
+    <string name="add_title_danger">أدخل عنوان الإنتهاك هنا</string>
+    <string name="add_description_danger">أدخل وصف الإنتهاك هنا</string>
+    <string name="add_link_danger">أدخل رابط الإنتهاك هنا</string>
+    <string name="add">إضافة</string>
+    <string name="add2">إضافة : </string>
+
+    <string name="text_change_password">تغير كلمة المرور</string>
+    <string name="enter_password_last">أدخل كلمة المرور الحالية</string>
+    <string name="enter_password_new">أدخل كلمة المرورو الجديد</string>
+    <string name="all_login_guest">جميع المسجلين كضيف</string>
+    <string name="login_guest_now">تسجيل كضيف حاليا</string>
+    <string name="choose_to_change">إختر للتغير:</string>
+    <string name="enter_number_here">أدخل الرقم هنا</string>
+
+
+    <string-array name="Info">
+        <item>الأسرى</item>
+        <item>المرضى</item>
+        <item>الأسيرات</item>
+        <item>الأسرى الإداريون</item>
+        <item>الصحفين</item>
+        <item>النواب</item>
+        <item>الأطفال</item>
+        <item>قدماء الأسرى</item>
+        <item>المؤبدات</item>
+    </string-array>
+
+
+
+    <string-array name="news">
+        <item>خبر جديد</item>
+        <item>إنتهاك جديد</item>
+    </string-array>
+
 
 </resources>

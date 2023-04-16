@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.konden.freedom.R
@@ -23,6 +24,12 @@ class SplachScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplachScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//
+//        val mDatabase = FirebaseDatabase.getInstance()
+//        val mDbRef = mDatabase.getReference("Worksheet")
+//        mDbRef.setValue("Parinitha Krishna")
+
 
         if (ShardPreferans.getInstance().IsFirest()){
             ShardPreferans.getInstance().saveLogin(false)
@@ -49,7 +56,9 @@ class SplachScreen : AppCompatActivity() {
                 }
             }
 
-        }, 3200)
+        }, 3000)
+
+
 
 
 

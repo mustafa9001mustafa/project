@@ -114,16 +114,12 @@ class LoginActivity : AppCompatActivity() {
 
                         if (ShardPreferans.getInstance().statesLogin == true) {
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-
-//                            GetData()
-
-
-//                            Toast.makeText(
-//                                this@LoginActivity,
-//                                "تم تسجيل الدخول",
-//                                Toast.LENGTH_SHORT
-//                            )
-//                                .show()
+                            Toast.makeText(
+                                this@LoginActivity,
+                                "تم تسجيل الدخول",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
                         } else {
 
                             Toast.makeText(
