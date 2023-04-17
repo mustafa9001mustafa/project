@@ -67,13 +67,13 @@ class LiveFragment : Fragment()  , ListCall {
 
         db.collection("live").orderBy("time",Query.Direction.DESCENDING).get().addOnSuccessListener {
             if (!it.isEmpty)
+
                 binding.lottieLoding.visibility = View.GONE
             binding.lottieLoding.cancelAnimation()
             for (data in it.documents) {
                 val live: AlsraData? = data.toObject<AlsraData>(AlsraData::class.java)
                 LiveArrayList.add(live!!)
             }
-
             binding.rvNews.adapter = AdapterLive(LiveArrayList,this)
         }
             .addOnFailureListener {

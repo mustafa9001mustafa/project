@@ -6,10 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.konden.freedom.R
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivitySplachScreenBinding

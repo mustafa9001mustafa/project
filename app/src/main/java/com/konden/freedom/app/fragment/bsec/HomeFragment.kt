@@ -1,8 +1,10 @@
 package com.konden.freedom.app.fragment.bsec
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -13,13 +15,10 @@ import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.flexbox.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.konden.freedom.R
 import com.konden.freedom.app.adapter.InfoAdapter
 import com.konden.freedom.app.fragment.dialog.AboutDialog
 import com.konden.freedom.app.interfaces.ListCall
@@ -31,17 +30,18 @@ import com.konden.freedom.app.ui.SettingActivity
 import com.konden.freedom.databinding.FragmentHomeBinding
 import com.konden.readandcuttext.appcontroller.AppController
 import com.konden.storonline.animations.Animations
+import es.dmoral.toasty.Toasty
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 
-class HomeFragment : Fragment(), ListCall ,ListFinish{
+class HomeFragment : Fragment(), ListCall, ListFinish {
     private lateinit var FreedomArreyList: ArrayList<InfoAllFreedom>
     private lateinit var binding: FragmentHomeBinding
     private var db = Firebase.firestore
     private lateinit var call_choose: ListCallChoose
     private val anim: Animations = Animations()
     val about_dialog: AboutDialog = AboutDialog()
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -50,7 +50,7 @@ class HomeFragment : Fragment(), ListCall ,ListFinish{
     }
 
     override fun onAttach(context: Context) {
-            super.onAttach(context)
+        super.onAttach(context)
         if (context is ListCallChoose) {
             call_choose = context
         } else {
@@ -118,7 +118,7 @@ class HomeFragment : Fragment(), ListCall ,ListFinish{
 
 
         binding.about.setOnClickListener(View.OnClickListener {
-            about_dialog.dialog(requireContext(),this)
+            about_dialog.dialog(requireContext(), this)
         })
 
         binding.setting.setOnClickListener(View.OnClickListener {
@@ -152,7 +152,13 @@ class HomeFragment : Fragment(), ListCall ,ListFinish{
                         data.toObject<InfoAllFreedom>(InfoAllFreedom::class.java)
                     FreedomArreyList.add(user!!)
                 }
-                binding.rv.adapter = InfoAdapter(FreedomArreyList)
+
+
+                binding.rv.adapter = InfoAdapter(FreedomArreyList, object : ListCall {
+                    override fun call(link: String) {
+                        Toasty.info(AppController.instance, link, Toast.LENGTH_SHORT).show()
+                    }
+                })
             }
         }.addOnFailureListener {
             Toast.makeText(activity, "error", Toast.LENGTH_SHORT).show()
@@ -205,8 +211,9 @@ class HomeFragment : Fragment(), ListCall ,ListFinish{
     }
 
     override fun call() {
-        var intent: Intent =
+        val intent: Intent =
             Intent(Intent.ACTION_VIEW, Uri.parse("https://www.mod.gov.ps/ar"))
-        startActivity( intent, null)
+        startActivity(intent, null)
     }
+
 }

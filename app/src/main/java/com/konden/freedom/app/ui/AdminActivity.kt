@@ -1,6 +1,7 @@
 package com.konden.freedom.app.ui
 
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -11,12 +12,13 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.konden.freedom.R
 import com.konden.freedom.databinding.ActivityAdminBinding
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 
 class AdminActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityAdminBinding
-
     var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,9 +46,10 @@ class AdminActivity : AppCompatActivity() {
                     binding.enterNewPassword.text.toString()
                 )
             else
-                Toast.makeText(this@AdminActivity, "أدخل كلمة المرور لتغيرها", Toast.LENGTH_SHORT)
-                    .show()
-
+                MotionToast.createColorToast(this@AdminActivity, "حدث خطأ ما", "أدخل كلمة المرور لتغيرها",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
         }
     }
 
@@ -59,8 +62,11 @@ class AdminActivity : AppCompatActivity() {
                     if (NowPassword.equals(Password))
                         ChangeNow(NewPassword)
                     else
-                        Toast.makeText(this@AdminActivity, "كلمة المرور خاطئة", Toast.LENGTH_SHORT)
-                            .show()
+                        MotionToast.createColorToast(this@AdminActivity, "حدث خطأ ما", "كلمة المرور خاطئة",
+                            MotionToastStyle.ERROR,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
+
                 }
             }
         }
@@ -69,11 +75,20 @@ class AdminActivity : AppCompatActivity() {
     private fun ChangeNow(NewPassword: String) {
         val data = mapOf<String, String>("Password" to NewPassword)
         db.collection("Admin").document("W0wd10pOXrM94MCUpnFQ").update(data).addOnSuccessListener {
-            Toast.makeText(this@AdminActivity, "تم التغير", Toast.LENGTH_SHORT).show()
+
+
+            MotionToast.createColorToast(this@AdminActivity, "تم التغير", "تم تغير الرقم بنجاح",
+                MotionToastStyle.SUCCESS,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
             binding.enterNowPassword.text.clear()
             binding.enterNewPassword.text.clear()
         }.addOnFailureListener {
-            Toast.makeText(this@AdminActivity, "حدث خطأ ما", Toast.LENGTH_SHORT).show()
+
+            MotionToast.createColorToast(this@AdminActivity, "حدث خطأ ما", "تأكد من إتصالك بالإنترنت",
+                MotionToastStyle.ERROR,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
         }
     }
 
@@ -88,19 +103,26 @@ class AdminActivity : AppCompatActivity() {
                 "link" to "https://$link",
                 "titel" to title,
                 "time" to FieldValue.serverTimestamp()
-
             )
 
             db.collection(collection)
                 .add(user)
                 .addOnSuccessListener {
-                    Toast.makeText(this@AdminActivity, "تم الإضافة", Toast.LENGTH_SHORT).show()
+
+                    MotionToast.createColorToast(this@AdminActivity, "تم الإضافة", "تم إضافة العملية بنجاح",
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
                     binding.enterTitel.text.clear()
                     binding.enterLink.text.clear()
                     binding.enterDescription.text.clear()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this@AdminActivity, "" + e, Toast.LENGTH_SHORT).show()
+
+                    MotionToast.createToast(this@AdminActivity, "حدث خطأ ما",""+ e,
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
                 }
 
         }
@@ -126,8 +148,12 @@ class AdminActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                Toast.makeText(this@AdminActivity, "حدث خطأ ما", Toast.LENGTH_SHORT).show()
-            }
+
+
+                MotionToast.createColorToast(this@AdminActivity, "حدث خطأ ما", "أعد العملية مرة أخرى",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)            }
         }
     }
 
@@ -158,7 +184,6 @@ class AdminActivity : AppCompatActivity() {
 
     private fun Add_New(collection: String) {
         binding.addLive.setOnClickListener {
-
             if (binding.enterDescription.text.isNotEmpty() && binding.enterLink.text.isNotEmpty() && binding.enterTitel.text.isNotEmpty()) {
                 val description: String = binding.enterDescription.text.toString()
                 val link: String = binding.enterLink.text.toString()
@@ -167,8 +192,11 @@ class AdminActivity : AppCompatActivity() {
                 AddNew(description, link, titel, collection)
 
             } else {
-                Toast.makeText(this@AdminActivity, "أدخل البيانات للإضافة", Toast.LENGTH_SHORT)
-                    .show()
+
+                MotionToast.createColorToast(this@AdminActivity, "حدث خطأ ما", "أدخل البيانات للإضافة",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
             }
         }
     }
@@ -193,10 +221,15 @@ class AdminActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                Toast.makeText(this@AdminActivity, "حدث خطأ ما", Toast.LENGTH_SHORT).show()
+
+                MotionToast.createColorToast(this@AdminActivity, "حدث خطأ ما", "تأكد من إتصالك بالإنترنت",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
             }
         }
     }
+
 
     private fun SwitchData(s: String) {
         val uid: String = when (s) {
@@ -220,17 +253,24 @@ class AdminActivity : AppCompatActivity() {
     private fun UpdateData(uid: String) {
         binding.FButton.setOnClickListener {
             if (binding.enterNumberData.text.isNotEmpty()) {
-                val data1 =
-                    mapOf<String, Int>("number" to binding.enterNumberData.text.toString().toInt())
+                val data1 = mapOf<String, Int>("number" to binding.enterNumberData.text.toString().toInt())
                 db.collection("Notes").document(uid).update(data1).addOnSuccessListener {
                     Toast.makeText(this@AdminActivity, "تم التغير", Toast.LENGTH_SHORT).show()
 
                     binding.enterNumberData.text.clear()
 
                 }.addOnFailureListener {
-                    Toast.makeText(this@AdminActivity, "حدث خطأ ما", Toast.LENGTH_SHORT).show()
+
+                    MotionToast.createColorToast(this@AdminActivity, "حدث خطأ ما", "تأكد من إتصالك بالإنترنت",
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
                 }
-            }
+            }else
+                MotionToast.createColorToast(this@AdminActivity, "حدث خطأ ما", "أدخل الرقم لتغير القيمة",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
         }
     }
 

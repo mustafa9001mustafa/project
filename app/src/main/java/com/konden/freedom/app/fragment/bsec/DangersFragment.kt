@@ -52,11 +52,10 @@ class DangersFragment : Fragment(), ListCall {
                 binding.lottieLoding.visibility = View.GONE
             binding.lottieLoding.cancelAnimation()
 
-            for (data in it.documents) {
-                val danger_data: AlsraData? =
-                    data.toObject<AlsraData>(AlsraData::class.java)
-                DangerDataArrayList.add(danger_data!!)
-            }
+                for (data in it.documents) {
+                    val danger_data: AlsraData? = data.toObject<AlsraData>(AlsraData::class.java)
+                    DangerDataArrayList.add(danger_data!!)
+                }
             binding.rv.adapter = AdapterDanger(DangerDataArrayList, this)
         }
             .addOnFailureListener {

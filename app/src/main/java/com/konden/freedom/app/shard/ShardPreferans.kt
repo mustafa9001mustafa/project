@@ -118,7 +118,7 @@ class ShardPreferans private constructor() {
 
 
     fun clear() {
-        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).remove(Gust).remove(Size).apply()
+        sharedPreferences.edit().remove(Login).remove(Name).remove(DataAsra).remove(DataFreedom).remove(Number).remove(Gust).remove(Size).remove(IsFirest).remove(Before).apply()
     }
 
     fun remove() {

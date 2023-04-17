@@ -1,25 +1,31 @@
 package com.konden.freedom.app.ui
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
+import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
+
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.konden.freedom.R
-import com.konden.freedom.app.fragment.bsec.ProfileFragment
 import com.konden.freedom.app.fragment.dialog.AboutDialog
 import com.konden.freedom.app.fragment.dialog.EnterPasswordFragment
 import com.konden.freedom.app.fragment.dialog.LanguagesFragment
+import com.konden.freedom.app.interfaces.ListCallChoose
 import com.konden.freedom.app.interfaces.ListFinish
 import com.konden.freedom.app.interfaces.ListenerCallLanguage
+import com.konden.freedom.app.interfaces.ListenerCallPassword
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivitySettingBinding
 import com.konden.readandcuttext.appcontroller.AppController
 import com.yariksoffice.lingver.Lingver
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
-class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
+class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish, ListenerCallPassword {
 
 
     private lateinit var binding: ActivitySettingBinding
@@ -33,7 +39,6 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         if (ShardPreferans.getInstance().GetSize) {
             binding.btnSize.setText(resources.getText(R.string.mid))
@@ -60,7 +65,8 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
 
     private fun Admin() {
         binding.cardAdmin.setOnClickListener(View.OnClickListener {
-            dialog_password = EnterPasswordFragment.newInstance()//show dialog description according to user type
+            dialog_password =
+                EnterPasswordFragment.newInstance()//show dialog description according to user type
             this@SettingActivity.supportFragmentManager.beginTransaction()
                 .let { it1 ->
                     dialog_password.show(it1, LanguagesFragment::class.java.name)
@@ -70,18 +76,34 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
 
     private fun Btn_reset() {
         binding.resetBtn.setOnClickListener(View.OnClickListener {
+
+
+
+
+
             SweetAlertDialog(this@SettingActivity, SweetAlertDialog.ERROR_TYPE)
                 .setTitleText("إنتبه")
                 .setContentText("سيقوم التطبيق بإعادة التشغيل مع حذف جميع البينات والإعدادات المحفوظة داخل التطبيق")
                 .setConfirmText(resources.getString(R.string.cansel))
                 .setCancelButton("إعادة ضبط") {
                     ShardPreferans.getInstance().clear()
+                    MotionToast.createColorToast(
+                        this@SettingActivity,
+                        "جاري إعادة ضبط التطبيق",
+                        "إنتظر بضع ثواني لإتمام إعداة الضبط بنجاح",
+                        MotionToastStyle.INFO,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        Typeface.MONOSPACE
+                    )
+
+
+
                     startActivity(Intent(this@SettingActivity, SplachScreen::class.java))
                     finish()
-                }
-//                .setCancelText(resources.getString(R.string.cansel))
-                .show()
 
+                }
+                .show()
         })
     }
 
@@ -126,9 +148,7 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
                 size_mid()
 
             }
-
         })
-
     }
 
     private fun size_mid() {
@@ -161,6 +181,23 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
         dialog.dismiss()
     }
 
+    override fun open() {
+
+        MotionToast.createColorToast(this@SettingActivity, "تسجيل الدخول", "تم تسجيل الدخول للوحة التحكم",
+            MotionToastStyle.SUCCESS,
+            MotionToast.GRAVITY_BOTTOM,
+            MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
+    }
+
+    override fun closed() {
+        MotionToast.createColorToast(
+            this@SettingActivity, "حدث خطأ ما", "كلمة المرور غير صحيحة",
+            MotionToastStyle.ERROR,
+            MotionToast.GRAVITY_BOTTOM,
+            MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD
+        )
+    }
+
     override fun close() {
         dialog.dismiss()
     }
@@ -171,7 +208,7 @@ class SettingActivity : AppCompatActivity(), ListenerCallLanguage, ListFinish {
     }
 
     override fun call() {
-        var intent: Intent =
+        val intent: Intent =
             Intent(Intent.ACTION_VIEW, Uri.parse("https://www.mod.gov.ps/ar"))
         startActivity(intent, null)
     }

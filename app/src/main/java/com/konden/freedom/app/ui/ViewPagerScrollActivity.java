@@ -11,8 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.konden.freedom.R;
 import com.konden.freedom.app.adapter.OnBoardingAdapter;
 import com.konden.freedom.databinding.ActivityViewPagerScrollBinding;

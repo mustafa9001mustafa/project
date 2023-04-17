@@ -1,34 +1,29 @@
 package com.konden.freedom.app.ui
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Editable
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.airbnb.lottie.parser.IntegerParser
+import androidx.core.content.res.ResourcesCompat
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.konden.freedom.app.shard.ShardPreferans
 import com.konden.freedom.databinding.ActivityLoginBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
-import kotlin.math.log
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
-
     val db = FirebaseFirestore.getInstance()
+    lateinit var pDialog: SweetAlertDialog
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +51,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, HomeActivity::class.java))
             GetData("Guest")
             GetData("GuestNow")
+            MotionToast.createColorToast(this@LoginActivity, "تسجيل الدخول", "تم تسجيل الدخول بنجاح",
+                MotionToastStyle.SUCCESS,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
 
             ShardPreferans.getInstance().GustLogin(true)
         })
@@ -69,11 +68,11 @@ class LoginActivity : AppCompatActivity() {
             if (number!!.isNotEmpty())
                 readnumber(number)
             else
-                Toast.makeText(
-                    this@LoginActivity,
-                    "أدخل رقم الهوية لتسجيل الدخور",
-                    Toast.LENGTH_SHORT
-                ).show()
+
+                MotionToast.createColorToast(this@LoginActivity, "حدث خطأ ما", "أدخل رقم الهوية لتسجيل الدخور",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
         })
     }
 
@@ -81,13 +80,11 @@ class LoginActivity : AppCompatActivity() {
 //        for (i in 0..10) {
 //            print(i)
 //        }
-
-        binding.textNotNecessary.visibility = View.VISIBLE
-        binding.backNotNecessary.visibility = View.VISIBLE
-        binding.lottieIconLoading.visibility = View.VISIBLE
-        binding.login.visibility = View.INVISIBLE
-        binding.lottieIconLoading.bringToFront()
-        binding.textNotNecessary.bringToFront()
+        pDialog = SweetAlertDialog(this@LoginActivity, SweetAlertDialog.PROGRESS_TYPE)
+        pDialog.progressHelper.barColor = Color.parseColor("#A5DC86")
+        pDialog.titleText = "جاري البحث عن رقم الهوية"
+        pDialog.setCancelable(false)
+        pDialog.show()
 
         val mDatabaseRef = FirebaseDatabase.getInstance().getReference("Worksheet")
         val query = mDatabaseRef.orderByChild("رقم الهوية").equalTo(number.toString())
@@ -95,10 +92,14 @@ class LoginActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 if (dataSnapshot.exists()) {
-                    binding.login.visibility = View.VISIBLE
-                    binding.textNotNecessary.visibility = View.GONE
-                    binding.backNotNecessary.visibility = View.GONE
-                    binding.lottieIconLoading.visibility = View.GONE
+                    pDialog.dismissWithAnimation()
+
+                    MotionToast.createColorToast(this@LoginActivity, "تسجيل الدخول", "تم تسجيل الدخول بنجاح",
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
+
+
                     GetData("Login")
                     for (data in dataSnapshot.children) {
                         val name = data.child("الاسم").value
@@ -114,77 +115,46 @@ class LoginActivity : AppCompatActivity() {
 
                         if (ShardPreferans.getInstance().statesLogin == true) {
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-                            Toast.makeText(
-                                this@LoginActivity,
-                                "تم تسجيل الدخول",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
+
+                            MotionToast.createColorToast(this@LoginActivity, "تم تسجيل الدخول", "تم تسجيل الدخول بنجاح",
+                                MotionToastStyle.SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
+
                         } else {
 
-                            Toast.makeText(
-                                this@LoginActivity,
-                                "Something with wrong",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
-                            binding.login.visibility = View.VISIBLE
-                            binding.textNotNecessary.visibility = View.GONE
-                            binding.backNotNecessary.visibility = View.GONE
-                            binding.lottieIconLoading.visibility = View.GONE
+
+                            MotionToast.createColorToast(this@LoginActivity, "حدث خطأ ما", "حدث خطأ ما يرجى إعادة المحاولة في بعد",
+                                MotionToastStyle.SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
                         }
                     }
 
                 } else {
-                    binding.login.visibility = View.VISIBLE
-                    binding.textNotNecessary.visibility = View.GONE
-                    binding.backNotNecessary.visibility = View.GONE
-                    binding.lottieIconLoading.visibility = View.GONE
-                    Toast.makeText(this@LoginActivity, "رقم الهوية غير موجود", Toast.LENGTH_SHORT)
-                        .show()
+                    MotionToast.createColorToast(this@LoginActivity, "لم يتم الإستجابة", "رقم الهوية غير موجودر",
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
+                    pDialog.dismissWithAnimation()
+
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                binding.login.visibility = View.VISIBLE
-                binding.textNotNecessary.visibility = View.GONE
-                binding.backNotNecessary.visibility = View.GONE
-                binding.lottieIconLoading.visibility = View.GONE
-
-                Toast.makeText(this@LoginActivity, "Something with wrong", Toast.LENGTH_SHORT)
-                    .show()
+                MotionToast.createColorToast(this@LoginActivity, "حدث خطأ ما", "تأكد كم وجود إنترنت لديك",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, Typeface.DEFAULT_BOLD)
+                pDialog.dismissWithAnimation()
 
 
             }
         })
-
-
-//        database = FirebaseDatabase.getInstance().getReference("Worksheet")
-
-//        database
-////            .child()
-//            .child(number.toString()).get().addOnSuccessListener {
-//                if (it.exists()) {
-//                    val number_id = it.child("رقم الهوية").value
-//                    Toast.makeText(this@LoginActivity, "ok" + number_id, Toast.LENGTH_SHORT).show()
-//                    binding.login.text = number_id.toString()
-//
-//                } else
-//                    Toast.makeText(this@LoginActivity, "المستخدم غير موجود", Toast.LENGTH_SHORT)
-//                        .show()
-//
-//            }.addOnCanceledListener {
-//                Toast.makeText(
-//                    this@LoginActivity,
-//                    "حدث خطأ ما , أعد تسجيل الدخول لاحقا",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//
-//            }
     }
 
 
-    private fun GetData(data_name : String) {
+    private fun GetData(data_name: String) {
         db.collection("Admin").get().addOnSuccessListener {
             if (!it.isEmpty) {
                 for (data in it.documents) {
@@ -193,9 +163,9 @@ class LoginActivity : AppCompatActivity() {
                     val data1 = mapOf<String, Int>(data_name to sum)
                     val id: String = "W0wd10pOXrM94MCUpnFQ"
                     db.collection("Admin").document(id).update(data1).addOnSuccessListener {
-                        Toast.makeText(this@LoginActivity, "yes  "+sum, Toast.LENGTH_SHORT).show()
+
                     }.addOnFailureListener {
-                        Toast.makeText(this@LoginActivity, "no", Toast.LENGTH_SHORT).show()
+
                     }
                 }
             }
@@ -203,71 +173,71 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    private fun GetData2() {
-        val data1 = mapOf<String, Int>("Login" to 10)
-
-        db.collection("Admin").document("Login").update(data1).addOnSuccessListener {
-            Toast.makeText(this@LoginActivity, "yes  ", Toast.LENGTH_SHORT).show()
-        }.addOnFailureListener {
-            Toast.makeText(this@LoginActivity, "no", Toast.LENGTH_SHORT).show()
-        }
-
-
-//        db.get().addOnSuccessListener {
-//            if (!it.isEmpty) {
-//                for (data in it.documents) {
-//                    val Login = data.get("Login").toString().toInt()
-//                    val id: String = "W0wd10pOXrM94MCUpnFQ"
-//                    val sum = Login + 1
-//                    db.whereEqualTo("Login" ,Login )
-//                    val data1 = mapOf<String, Int>("Login" to sum)
-////                    data_number(id,Login,sum,data1)
-//                    db.document(id).update(data1).addOnSuccessListener {
-//                        Toast.makeText(this@LoginActivity, "yes  " + sum, Toast.LENGTH_SHORT).show()
+//    private fun GetData2() {
+//        val data1 = mapOf<String, Int>("Login" to 10)
 //
-//                    }.addOnFailureListener {
-//                        Toast.makeText(this@LoginActivity, "no", Toast.LENGTH_SHORT).show()
-//                    }
-////                    Toast.makeText(this@LoginActivity, ""+sum, Toast.LENGTH_SHORT).show()
-////                    database.child("Admin").child(id).updateChildren(data1)
-////                    db.document(id).update(data1)
-////                    val Logout = data.get("Logout").toString()
-//                }
-//            }
+//        db.collection("Admin").document("Login").update(data1).addOnSuccessListener {
+//            Toast.makeText(this@LoginActivity, "yes  ", Toast.LENGTH_SHORT).show()
+//        }.addOnFailureListener {
+//            Toast.makeText(this@LoginActivity, "no", Toast.LENGTH_SHORT).show()
 //        }
-    }
-
-//    private fun data_number(id : String , one_login : Int , login: Int,newPersonMap: Map<String, Int>) {
-//        val personQuery = db
-//            .whereEqualTo("Login", one_login)
-//            .get()
-//
-//        db.document(id).update("Login", login)
 //
 //
-////        if(personQuery.documents.isNotEmpty()) {
-////            for(document in personQuery) {
-////                try {
-////                    db.document(document.id).update("Login", login).await()
-//////                    db.document(document.id).set(
-//////                        newPersonMap,
-//////                        SetOptions.merge()
-//////                    ).await()
+////        db.get().addOnSuccessListener {
+////            if (!it.isEmpty) {
+////                for (data in it.documents) {
+////                    val Login = data.get("Login").toString().toInt()
+////                    val id: String = "W0wd10pOXrM94MCUpnFQ"
+////                    val sum = Login + 1
+////                    db.whereEqualTo("Login" ,Login )
+////                    val data1 = mapOf<String, Int>("Login" to sum)
+//////                    data_number(id,Login,sum,data1)
+////                    db.document(id).update(data1).addOnSuccessListener {
+////                        Toast.makeText(this@LoginActivity, "yes  " + sum, Toast.LENGTH_SHORT).show()
 ////
-////                    Toast.makeText(this@LoginActivity, "ok", Toast.LENGTH_SHORT).show()
-////
-////                } catch (e: Exception) {
-////                    withContext(Dispatchers.Main) {
-////                        Toast.makeText(this@LoginActivity, e.message, Toast.LENGTH_LONG).show()
+////                    }.addOnFailureListener {
+////                        Toast.makeText(this@LoginActivity, "no", Toast.LENGTH_SHORT).show()
 ////                    }
+//////                    Toast.makeText(this@LoginActivity, ""+sum, Toast.LENGTH_SHORT).show()
+//////                    database.child("Admin").child(id).updateChildren(data1)
+//////                    db.document(id).update(data1)
+//////                    val Logout = data.get("Logout").toString()
 ////                }
-////            }
-////        } else {
-////            withContext(Dispatchers.Main) {
-////                Toast.makeText(this@LoginActivity, "No persons matched the query.", Toast.LENGTH_LONG).show()
 ////            }
 ////        }
 //    }
+//
+////    private fun data_number(id : String , one_login : Int , login: Int,newPersonMap: Map<String, Int>) {
+////        val personQuery = db
+////            .whereEqualTo("Login", one_login)
+////            .get()
+////
+////        db.document(id).update("Login", login)
+////
+////
+//////        if(personQuery.documents.isNotEmpty()) {
+//////            for(document in personQuery) {
+//////                try {
+//////                    db.document(document.id).update("Login", login).await()
+////////                    db.document(document.id).set(
+////////                        newPersonMap,
+////////                        SetOptions.merge()
+////////                    ).await()
+//////
+//////                    Toast.makeText(this@LoginActivity, "ok", Toast.LENGTH_SHORT).show()
+//////
+//////                } catch (e: Exception) {
+//////                    withContext(Dispatchers.Main) {
+//////                        Toast.makeText(this@LoginActivity, e.message, Toast.LENGTH_LONG).show()
+//////                    }
+//////                }
+//////            }
+//////        } else {
+//////            withContext(Dispatchers.Main) {
+//////                Toast.makeText(this@LoginActivity, "No persons matched the query.", Toast.LENGTH_LONG).show()
+//////            }
+//////        }
+////    }
 
 
     private fun SizeALlText() {

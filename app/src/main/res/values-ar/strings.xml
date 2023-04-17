@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">الحرية</string>
+    <string name="app_name">الأسرى</string>
     <string name="login">تسجيل الدخول</string>
     <string name="enter_number">أدخل رقم الهوية</string>
     <string name="text_login">الدخول</string>

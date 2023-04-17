@@ -102,6 +102,15 @@ dependencies {
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
 
+    // toast
+
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+    implementation 'com.github.Spikeysanju:MotionToast:1.4'
+
+
+
+
+
     // test *************************************** //
     // test *************************************** //
     // test *************************************** //
